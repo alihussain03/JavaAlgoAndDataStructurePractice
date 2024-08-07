@@ -1,1 +1,1 @@
-# JavaAlgorAndDataStructurePratice
+# JavaAlgoAndDataStructurePratice
