@@ -1,5 +1,8 @@
 package com.practice.String;
 
+/**
+ * Count the number of vowels and consonants in a string
+ */
 public class String_4_VowelsConsonantsCount {
     public static void main(String[] args) {
         String str = "Hello World!";

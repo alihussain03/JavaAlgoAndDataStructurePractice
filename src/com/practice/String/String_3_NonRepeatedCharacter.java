@@ -3,6 +3,9 @@ package com.practice.String;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * find the first non-repeated character in a string
+ */
 public class String_3_NonRepeatedCharacter {
     public static void main(String[] args) {
         String str = "aabbcddeeff";

@@ -2,6 +2,11 @@ package com.practice.String;
 
 import java.util.Arrays;
 
+/**
+ * Check if two strings are anagrams of each other
+ * Two strings are anagrams if they contain the same characters with the same frequency,
+ * but the order of characters may differ. For example, "listen" and "silent" are anagrams.
+ */
 public class String_5_StringAnagram {
     public static void main(String[] args) {
         String str1 = "listen";
