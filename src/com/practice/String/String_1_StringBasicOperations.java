@@ -7,23 +7,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class String_11_StringBasicOperations {
-    private static void splitString(String str, String delimiter) {
-        if (str == null || str.isEmpty()) {
-            return;
-        }
-        String[] words = str.split(delimiter);
-        for (String word : words) {
-            System.out.println(word);
-        }
-    }
-
+public class String_1_StringBasicOperations {
     public static void main(String[] args) {
-        String str = "Hello, World! How are you?";
+        String str = "Reverse it without using any built in function";
+        System.out.println("Reverse using for loop      : " + reverseStringUsingForLoop(str));
+        System.out.println("Reverse using Recursion     : " + reverseStringUsingRecursion(str));
+        System.out.println("Reverse using Builder class : " + reverseStringUsingBuilderClass(str));
+
+        str = "Hello, World! How are you?";
         String delimiter = " ";
         System.out.println("String \"" + str + "\" split by delimiter \"" + delimiter + "\":");
         splitString(str, delimiter);
-        System.out.println("String \"" + str + "\" converted to uppercase: " + convertOutstrippingCase(str));
+        System.out.println("String \"" + str + "\" converted to uppercase: " + convertToUpperCase(str));
         System.out.println("String \"" + str + "\" with removed whitespaces: " + removeWhiteSpaces(" 34324324 "));
         countWords(str);
         stringCompare("Hello", "hello");
@@ -34,7 +29,30 @@ public class String_11_StringBasicOperations {
         stringToDateBasic("2021-09-01");
     }
 
-    private static String convertOutstrippingCase(String str) {
+    public static String reverseStringUsingForLoop(String input) {
+        StringBuilder sb = new StringBuilder();
+        // char[] chars = input.toCharArray();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            sb.append(input.charAt(i));
+        }
+        return sb.toString();
+    }
+
+    public static String reverseStringUsingRecursion(String input) {
+        if (input.isEmpty()) {
+            return input;
+        }
+        return reverseStringUsingRecursion(input.substring(1)) + input.charAt(0);
+    }
+
+    public static String reverseStringUsingBuilderClass(String input) {
+        if (input.isEmpty()) {
+            return input;
+        }
+        return new StringBuilder(input).reverse().toString();
+    }
+
+    private static String convertToUpperCase(String str) {
         return str.toUpperCase();
     }
 
@@ -69,15 +87,12 @@ public class String_11_StringBasicOperations {
     }
 
     private static void replaceCharacter(String str, char oldChar, char newChar) {
-        System.out.println("String \"" + str + "\" with replaced character \"" + oldChar +
-                "\" with \"" + newChar + "\": " + str.replace(oldChar, newChar));
+        System.out.println("String \"" + str + "\" with replaced character \"" + oldChar + "\" with \"" + newChar + "\": " + str.replace(oldChar, newChar));
     }
 
     private static void checkStringPrefix(String str, String prefix) {
-        System.out.println("String \"" + str + "\" starts with character \"" + prefix + "\": " +
-                str.startsWith(prefix));
-        System.out.println("String \"" + str + "\" ends with character \"" + prefix + "\": " +
-                str.endsWith(prefix));
+        System.out.println("String \"" + str + "\" starts with character \"" + prefix + "\": " + str.startsWith(prefix));
+        System.out.println("String \"" + str + "\" ends with character \"" + prefix + "\": " + str.endsWith(prefix));
     }
 
     private static void stringToChar(String str) {
@@ -94,10 +109,7 @@ public class String_11_StringBasicOperations {
     }
 
     private static void removeCharacterFromStringUsingStreams(String str, char ch) {
-        String result = str.chars()
-                .filter(c -> c != ch)
-                .mapToObj(c -> String.valueOf((char) c))
-                .collect(Collectors.joining());
+        String result = str.chars().filter(c -> c != ch).mapToObj(c -> String.valueOf((char) c)).collect(Collectors.joining());
         System.out.println("Using streams: " + result);
     }
 
@@ -111,11 +123,9 @@ public class String_11_StringBasicOperations {
 
     private static void stringToDateAdvance(String str) {
         try {
-            // Using default ISO format (yyyy-MM-dd)
             LocalDate localDate = LocalDate.parse(str);
             System.out.println("Parsed Date: " + localDate);
 
-            // Example of using DateTimeFormatter for a custom format
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String customStr = "08/08/2024";
             LocalDate customDate = LocalDate.parse(customStr, formatter);
@@ -126,5 +136,14 @@ public class String_11_StringBasicOperations {
         }
     }
 
-
+    private static void splitString(String str, String delimiter) {
+        if (str == null || str.isEmpty()) {
+            return;
+        }
+        String[] words = str.split(delimiter);
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
 }
+
