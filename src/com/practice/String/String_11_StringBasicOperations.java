@@ -1,9 +1,23 @@
 package com.practice.String;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class String_11_StringBasicOperations {
+    private static void splitString(String str, String delimiter) {
+        if (str == null || str.isEmpty()) {
+            return;
+        }
+        String[] words = str.split(delimiter);
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+
     public static void main(String[] args) {
         String str = "Hello, World! How are you?";
         String delimiter = " ";
@@ -15,16 +29,9 @@ public class String_11_StringBasicOperations {
         stringCompare("Hello", "hello");
         replaceCharacter("Hello", 'l', 'a');
         checkStringPrefix("Hello", "He");
-    }
-
-    private static void splitString(String str, String delimiter) {
-        if (str == null || str.isEmpty()) {
-            return;
-        }
-        String[] words = str.split(delimiter);
-        for (String word : words) {
-            System.out.println(word);
-        }
+        stringToChar("String to char and vice versa");
+        removeCharacterFromString("Hello", 'l');
+        stringToDateBasic("2021-09-01");
     }
 
     private static String convertOutstrippingCase(String str) {
@@ -71,6 +78,52 @@ public class String_11_StringBasicOperations {
                 str.startsWith(prefix));
         System.out.println("String \"" + str + "\" ends with character \"" + prefix + "\": " +
                 str.endsWith(prefix));
+    }
+
+    private static void stringToChar(String str) {
+        char charArray[] = str.toCharArray();
+        str = new String(charArray);
+        System.out.println(str);
+    }
+
+    private static void removeCharacterFromString(String str, char ch) {
+
+        System.out.println(str.replace(String.valueOf(ch), ""));
+
+        removeCharacterFromStringUsingStreams(str, ch);
+    }
+
+    private static void removeCharacterFromStringUsingStreams(String str, char ch) {
+        String result = str.chars()
+                .filter(c -> c != ch)
+                .mapToObj(c -> String.valueOf((char) c))
+                .collect(Collectors.joining());
+        System.out.println("Using streams: " + result);
+    }
+
+    private static void stringToDateBasic(String str) {
+        LocalDate localDate = LocalDate.parse(str);
+        System.out.println(localDate.getMonth());
+        System.out.println(localDate.toString());
+
+        stringToDateAdvance(str);
+    }
+
+    private static void stringToDateAdvance(String str) {
+        try {
+            // Using default ISO format (yyyy-MM-dd)
+            LocalDate localDate = LocalDate.parse(str);
+            System.out.println("Parsed Date: " + localDate);
+
+            // Example of using DateTimeFormatter for a custom format
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String customStr = "08/08/2024";
+            LocalDate customDate = LocalDate.parse(customStr, formatter);
+            System.out.println("Parsed Date with Custom Format: " + customDate);
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format: " + str);
+        }
     }
 
 

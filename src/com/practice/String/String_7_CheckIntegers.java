@@ -1,8 +1,5 @@
 package com.practice.String;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 /**
  * Check if a string contains only integers
  */
