@@ -1,9 +1,10 @@
 package com.practice.Array;
 
-public class RemoveDuplicates {
-    /*
-      https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
-    */
+public class Array_4_LeetCode_RemoveDuplicates {
+    /**
+     * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+     * solve using Two pointers
+     */
     public int removeDuplicates(int[] nums) {
         // Edge case: If the array is empty, return 0
         if (nums == null || nums.length == 0) {
@@ -27,6 +28,7 @@ public class RemoveDuplicates {
 
     /**
      * https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/
+     * solve using Two pointers
      */
     public int removeDuplicatesKeepAtMostTwo(int[] nums) {
         if (nums.length <= 2) {
@@ -47,7 +49,7 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        RemoveDuplicates solution = new RemoveDuplicates();
+        Array_4_LeetCode_RemoveDuplicates solution = new Array_4_LeetCode_RemoveDuplicates();
 
         int[] nums = {0, 0, 1, 1, 2, 2, 3, 3, 4};
         int k = solution.removeDuplicates(nums);

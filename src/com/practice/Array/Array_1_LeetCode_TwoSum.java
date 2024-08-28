@@ -13,15 +13,15 @@ import java.util.Map;
 
 public class Array_1_LeetCode_TwoSum {
     public static void main(String[] args) {
-        System.out.println("");
         int[] result = twoSum(new int[]{2, 7, 11, 15}, 9);
 
         for (int i : result) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
+        System.out.println();
         result = twoSumUsingHashMap(new int[]{2, 7, 11, 15}, 9);
         for (int i : result) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
     }
 
