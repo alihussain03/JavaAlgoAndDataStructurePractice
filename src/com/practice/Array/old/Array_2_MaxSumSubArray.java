@@ -1,4 +1,4 @@
-package com.practice.Array;
+package com.practice.Array.old;
 
 /**
  * given an integer array nums and an integer k. Find the maximum subarray sum of all the
@@ -9,7 +9,7 @@ package com.practice.Array;
  */
 
 // need to check one more time
-public class Array_2_LeetCode_MaxSumSubArray {
+public class Array_2_MaxSumSubArray {
     public static void main(String[] args) {
         System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));
     }

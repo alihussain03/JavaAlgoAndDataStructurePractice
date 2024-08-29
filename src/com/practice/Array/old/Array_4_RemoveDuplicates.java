@@ -1,6 +1,6 @@
-package com.practice.Array;
+package com.practice.Array.old;
 
-public class Array_4_LeetCode_RemoveDuplicates {
+public class Array_4_RemoveDuplicates {
     /**
      * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
      * solve using Two pointers
@@ -49,7 +49,7 @@ public class Array_4_LeetCode_RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        Array_4_LeetCode_RemoveDuplicates solution = new Array_4_LeetCode_RemoveDuplicates();
+        Array_4_RemoveDuplicates solution = new Array_4_RemoveDuplicates();
 
         int[] nums = {0, 0, 1, 1, 2, 2, 3, 3, 4};
         int k = solution.removeDuplicates(nums);

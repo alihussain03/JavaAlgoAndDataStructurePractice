@@ -1,6 +1,9 @@
-package com.practice.Array;
+package com.practice.Array.old;
 
-public class Array_3_LeetCode_RotateArray {
+/**
+ * https://leetcode.com/problems/rotate-array/description
+ */
+public class Array_1_RotateArray {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
         int k = 3;
@@ -8,12 +11,13 @@ public class Array_3_LeetCode_RotateArray {
         for (int num : nums) {
             System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
         }
-        rotateWithtoutExtraSpace(nums, k);
+        rotateWithOutExtraSpace(nums, k);
         for (int num : nums) {
             System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
         }
     }
 
+    /* Sliding window */
     private static void rotateArray(int[] nums, int k) {
         int n = nums.length;
         int[] rotated = new int[n];
@@ -29,7 +33,8 @@ public class Array_3_LeetCode_RotateArray {
 
     }
 
-    public static void rotateWithtoutExtraSpace(int[] nums, int k) {
+    /* Approach for rotating an array in-place without using extra space */
+    public static void rotateWithOutExtraSpace(int[] nums, int k) {
         int n = nums.length;
         k = k % n;  // Normalize k
 

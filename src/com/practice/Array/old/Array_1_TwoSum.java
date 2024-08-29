@@ -1,4 +1,4 @@
-package com.practice.Array;
+package com.practice.Array.old;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
  * Output: [0,1]
  */
 
-public class Array_1_LeetCode_TwoSum {
+public class Array_1_TwoSum {
     public static void main(String[] args) {
         int[] result = twoSum(new int[]{2, 7, 11, 15}, 9);
 
