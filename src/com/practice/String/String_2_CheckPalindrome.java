@@ -5,7 +5,7 @@ package com.practice.String;
  * ignoring spaces, punctuation, and case differences.
  */
 
-public class String_2_LeetCode_CheckPalindrome {
+public class String_2_CheckPalindrome {
 
     public static void main(String[] args) {
         String[] testCases = {
