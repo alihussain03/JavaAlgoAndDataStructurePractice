@@ -1,5 +1,9 @@
 package com.practice.Array;
 
+/**
+ * <a href="https://leetcode.com/problems/maximum-subarray/">Maximum Subarray</a>
+ * <p>  Kadane's Algorithm </p>
+ */
 public class Array_3_MaxSubArray {
     public static void main(String[] args) {
         System.out.println("Max Sub Array");

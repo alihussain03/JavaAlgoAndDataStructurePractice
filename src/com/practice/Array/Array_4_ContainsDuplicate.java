@@ -9,7 +9,7 @@ public class Array_4_ContainsDuplicate {
     public static void main(String[] args) {
         System.out.println("Contains Duplicate");
         int[] arr = {1, 2, 3, 1};
-        System.out.println(containsDuplicate1(arr));
+        System.out.println(containsDuplicate(arr));
     }
 
     private static boolean containsDuplicate(int[] arr) {
@@ -23,6 +23,7 @@ public class Array_4_ContainsDuplicate {
         return false;
     }
 
+    // This is advance solution. will check it later.
     public static boolean containsDuplicate1(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {
