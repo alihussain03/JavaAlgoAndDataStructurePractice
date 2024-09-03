@@ -11,6 +11,7 @@ public class Array_1_RotateArray {
         for (int num : nums) {
             System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
         }
+        nums = new int[]{1, 2, 3, 4, 5, 6, 7};
         rotateWithOutExtraSpace(nums, k);
         for (int num : nums) {
             System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
@@ -30,10 +31,14 @@ public class Array_1_RotateArray {
             rotated[i] = nums[i - k];
         }
         System.arraycopy(rotated, 0, nums, 0, n);
-
     }
 
-    /* Approach for rotating an array in-place without using extra space */
+    /* Approach for rotating an array in-place without using extra space
+     *  First step  = 7,6,5,4,3,2,1 // Reverse complete array
+     *  Second step = 5,6,7,4,3,2,1 // Reverse array from 0 to k-1
+     *  Third step  = 5,6,7,1,2,3,4 // Reverse array from k to n-1
+     */
+
     public static void rotateWithOutExtraSpace(int[] nums, int k) {
         int n = nums.length;
         k = k % n;  // Normalize k
