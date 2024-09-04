@@ -9,17 +9,10 @@ public class LinearSearch {
     private static int linearSearch(int[] arr, int i) {
         int first = 0;
         int last = arr.length - 1;
-        while (first <= last) {
-            if (arr[first] == i) {
-                System.out.println("Element found at index: " + first);
-                return first;
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] == i) {
+                return j;
             }
-            if (arr[last] == i) {
-                System.out.println("Element found at index: " + last);
-                return last;
-            }
-            first++;
-            last--;
         }
         return -1;
     }
