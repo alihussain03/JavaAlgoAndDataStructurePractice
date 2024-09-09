@@ -1,11 +1,10 @@
 package com.practice.Array;
 
-public class ArrayBasic {
+public class Array_7_FirstAndSecondLargestElement {
     public static void main(String[] args) {
-        int[] arr = {4, 5, 6, 7, 0, 1, 2};
+        int[] arr = {10, 5, 8, 7, 6};
         System.out.println("First Largest: " + firstLargest(arr));
         System.out.println("Second Largest: " + secondLargest(arr));
-        System.out.println("Is Sorted: " + isSorted(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
     }
 
     private static int firstLargest(int[] arr) {
@@ -35,18 +34,5 @@ public class ArrayBasic {
             }
         }
         return secondMax;
-    }
-
-    private static boolean isSorted(int[] arr) {
-        // Edge case: an array with 0 or 1 element is always sorted
-        if (arr == null || arr.length <= 1) {
-            return true;
-        }
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[i - 1]) {
-                return false;
-            }
-        }
-        return true;
     }
 }

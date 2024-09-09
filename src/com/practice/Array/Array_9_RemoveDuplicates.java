@@ -1,6 +1,6 @@
-package com.practice.Array.old;
+package com.practice.Array;
 
-public class Array_4_RemoveDuplicates {
+public class Array_9_RemoveDuplicates {
     /**
      * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
      * solve using Two pointers
@@ -21,7 +21,6 @@ public class Array_4_RemoveDuplicates {
                 nums[slow] = nums[fast];
             }
         }
-
         // The number of unique elements is slow pointer index + 1
         return slow + 1;
     }
@@ -48,8 +47,9 @@ public class Array_4_RemoveDuplicates {
         return slow;
     }
 
+
     public static void main(String[] args) {
-        Array_4_RemoveDuplicates solution = new Array_4_RemoveDuplicates();
+        Array_9_RemoveDuplicates solution = new Array_9_RemoveDuplicates();
 
         int[] nums = {0, 0, 1, 1, 2, 2, 3, 3, 4};
         int k = solution.removeDuplicates(nums);
@@ -58,17 +58,11 @@ public class Array_4_RemoveDuplicates {
             System.out.print(num + " ");
         }
         System.out.println();
-        nums = new int[]{0, 0, 1, 1, 2, 2, 3, 3, 4};
+        nums = new int[]{0, 0, 0, 1, 1, 1, 3, 3, 4};
         k = solution.removeDuplicatesKeepAtMostTwo(nums);
+        System.out.println("Number of unique elements: " + k);
         for (int num : nums) {
             System.out.print(num + " ");
-        }
-        System.out.println();
-        System.out.println("Number of unique elements: " + k);
-
-        // Output the array up to the k elements
-        for (int i = 0; i < k; i++) {
-            System.out.print(nums[i] + " ");
         }
     }
 }
