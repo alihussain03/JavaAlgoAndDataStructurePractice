@@ -1,24 +1,6 @@
-package com.practice.Array.old;
+package com.practice.Array;
 
-/**
- * https://leetcode.com/problems/rotate-array/description
- */
-public class Array_1_RotateArray {
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        int k = 3;
-        rotateArray(nums, k);
-        for (int num : nums) {
-            System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
-        }
-        nums = new int[]{1, 2, 3, 4, 5, 6, 7};
-        rotateWithOutExtraSpace(nums, k);
-        for (int num : nums) {
-            System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
-        }
-    }
-
-    /* Sliding window */
+public class Array_10_RotateArray {
     private static void rotateArray(int[] nums, int k) {
         int n = nums.length;
         int[] rotated = new int[n];
@@ -38,7 +20,6 @@ public class Array_1_RotateArray {
      *  Second step = 5,6,7,4,3,2,1 // Reverse array from 0 to k-1
      *  Third step  = 5,6,7,1,2,3,4 // Reverse array from k to n-1
      */
-
     public static void rotateWithOutExtraSpace(int[] nums, int k) {
         int n = nums.length;
         k = k % n;  // Normalize k
@@ -60,6 +41,21 @@ public class Array_1_RotateArray {
             nums[end] = temp;
             start++;
             end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
+        rotateArray(nums, k);
+        for (int num : nums) {
+            System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
+        }
+        System.out.println("\nRotate With Out Extra Space:");
+        nums = new int[]{1, 2, 3, 4, 5, 6, 7};
+        rotateWithOutExtraSpace(nums, k);
+        for (int num : nums) {
+            System.out.print(num + " "); // Output: 5 6 7 1 2 3 4
         }
     }
 }

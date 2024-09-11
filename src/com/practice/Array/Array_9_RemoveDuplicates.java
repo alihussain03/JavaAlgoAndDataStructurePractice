@@ -40,13 +40,13 @@ public class Array_9_RemoveDuplicates {
             // Compare the current element with the element two positions before
             if (nums[fast] != nums[slow - 2]) {
                 // If different, move the slow pointer and update the element
+                System.out.println("nums[fast]: " + nums[fast] + " nums[slow-2]: " + nums[slow - 2]);
                 nums[slow] = nums[fast];
                 slow++;
             }
         }
         return slow;
     }
-
 
     public static void main(String[] args) {
         Array_9_RemoveDuplicates solution = new Array_9_RemoveDuplicates();
