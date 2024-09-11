@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class ArrayUnionAndInterSection {
+public class Array_13_ArrayUnionAndInterSection {
     public static void main(String[] args) {
         System.out.println("Array Union");
         System.out.println(findUnionTwoPointer(new int[]{1, 2, 2, 3, 4, 5}, new int[]{3, 4, 5, 6, 7, 8}));

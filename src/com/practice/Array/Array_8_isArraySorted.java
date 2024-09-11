@@ -6,7 +6,6 @@ public class Array_8_isArraySorted {
     }
 
     private static boolean isSorted(int[] arr) {
-
         // Edge case: an array with 0 or 1 element is always sorted
         if (arr == null || arr.length <= 1) {
             return true;
@@ -17,5 +16,12 @@ public class Array_8_isArraySorted {
             }
         }
         return true;
+    }
+
+    /**
+     * https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
+     */
+    public boolean check(int[] nums) {
+        return false;
     }
 }
