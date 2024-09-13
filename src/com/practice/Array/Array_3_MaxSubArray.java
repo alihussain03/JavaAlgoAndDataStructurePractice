@@ -2,7 +2,8 @@ package com.practice.Array;
 
 /**
  * <a href="https://leetcode.com/problems/maximum-subarray/">Maximum Subarray</a>
- * <p>  Kadane's Algorithm </p>
+ * <p>  Kadane's Algorithm  (Dynamic Sliding Window) </p>
+ * TODO: left
  */
 public class Array_3_MaxSubArray {
     public static void main(String[] args) {

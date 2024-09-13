@@ -1,17 +1,12 @@
-package com.practice.Array.old;
+package com.practice.Array;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Given an array of integers nums and an integer target,
- * return indices of the two numbers such that they add up to target.
- * <p>
- * Input: nums = [2,7,11,15], target = 9
- * Output: [0,1]
+ * https://leetcode.com/problems/two-sum/description/
  */
-
-public class Array_1_TwoSum {
+public class Array_19_TwoSum {
     public static void main(String[] args) {
         int[] result = twoSum(new int[]{2, 7, 11, 15}, 9);
 
@@ -42,8 +37,7 @@ public class Array_1_TwoSum {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
-            if (map.containsKey(complement))
-                return new int[]{map.get(complement), i};
+            if (map.containsKey(complement)) return new int[]{map.get(complement), i};
             map.put(nums[i], i);
         }
         return new int[0];
