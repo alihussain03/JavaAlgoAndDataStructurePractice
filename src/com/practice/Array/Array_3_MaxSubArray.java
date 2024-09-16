@@ -6,7 +6,7 @@ import java.util.Map;
 public class Array_3_MaxSubArray {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println(maxSumOfDistinctSubArrays(arr, 4));
+        System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));
         System.out.println(longestSubarrayWithSumK(arr, 2, arr.length));
         System.out.println(maxSumOfSubarray(new int[]{5, 4, -1, 7, 8}));
     }
@@ -14,6 +14,8 @@ public class Array_3_MaxSubArray {
     /**
      * https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
      * Fixed-size Sliding Window with Additional Constraint (Distinct elements)
+     * This function finds the maximum sum of a subarray with exactly k elements, where all elements are distinct.
+     * {1, 2, 3, 4, 5, 1, 2, 3}, k=3, Output=12 (3, 4, 5)
      */
     public static long maxSumOfDistinctSubArrays(int[] nums, int k) {
         if (nums.length < k) {
@@ -58,6 +60,8 @@ public class Array_3_MaxSubArray {
     /**
      * https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k
      * Variable-size Sliding Window or Two Pointers (with sum tracking)
+     * This function finds the longest subarray in arr where the total of its elements equals the given sum.
+     * 10, 5, 2, 7, 1, 9};  sum = 15; output = 4
      */
     public static int longestSubarrayWithSumK(int[] arr, int sum, int n) {
         HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
@@ -91,6 +95,8 @@ public class Array_3_MaxSubArray {
      * <a href="https://leetcode.com/problems/maximum-subarray/">Maximum Subarray</a>
      * <p>  Kadane's Algorithm </p>
      * can be done using Sliding Window ?
+     * This function finds the maximum sum of a contiguous subarray in nums using Kadane's Algorithm.
+     * {-2, 1, -3, 4, -1, 2, 1, -5, 4}, output = 6
      */
     public static int maxSumOfSubarray(int[] nums) {
         int sum = 0, maxSum = nums[0];
