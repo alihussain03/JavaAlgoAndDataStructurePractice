@@ -1,34 +1,55 @@
 package com.practice.Array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Array_3_MaxSubArray {
     public static void main(String[] args) {
-        System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(maxSumOfDistinctSubArrays(arr, 4));
+        System.out.println(longestSubarrayWithSumK(arr, 2, arr.length));
+        System.out.println(maxSumOfSubarray(new int[]{5, 4, -1, 7, 8}));
     }
 
     /**
      * https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
      * Fixed-size Sliding Window with Additional Constraint (Distinct elements)
      */
-    public static int maxSumOfDistinctSubArrays(int[] arr, int k) {
-        int n = arr.length;
-
-        if (k > n) {
-            throw new IllegalArgumentException("Subarray size K cannot be larger than the array size N");
+    public static long maxSumOfDistinctSubArrays(int[] nums, int k) {
+        if (nums.length < k) {
+            return 0;
         }
 
-        // Compute the sum of the first window of size K
-        int maxSum = 0;
-        for (int i = 0; i < k; i++) {
-            maxSum += arr[i];
-        }
+        Map<Integer, Integer> countMap = new HashMap<>();
+        long maxSum = 0;
+        long currentSum = 0;
+        int start = 0;
 
-        // Use this as the initial sum
-        int windowSum = maxSum;
+        for (int end = 0; end < nums.length; end++) {
+            int num = nums[end];
 
-        // Slide the window across the array
-        for (int i = k; i < n; i++) {
-            windowSum += arr[i] - arr[i - k]; // Update the sum for the new window
-            maxSum = Math.max(maxSum, windowSum); // Track the maximum sum
+            // Add new element to the window
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+            currentSum += num;
+
+            // Check and adjust window if necessary
+            while (countMap.get(num) > 1) {
+                int startNum = nums[start];
+                countMap.put(startNum, countMap.get(startNum) - 1);
+                currentSum -= startNum;
+                start++;
+            }
+
+            // Update maxSum if we have a valid window of size k
+            if (end - start + 1 == k) {
+                maxSum = Math.max(maxSum, currentSum);
+
+                // Remove the element going out of the window
+                int outgoingNum = nums[start];
+                countMap.put(outgoingNum, countMap.get(outgoingNum) - 1);
+                currentSum -= outgoingNum;
+                start++;
+            }
         }
 
         return maxSum;
@@ -38,29 +59,29 @@ public class Array_3_MaxSubArray {
      * https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k
      * Variable-size Sliding Window or Two Pointers (with sum tracking)
      */
-    public static int longestSubarrayWithSumK(int[] nums, int K) {
-        int start = 0, end = 0; // two pointers
-        int currentSum = 0;
+    public static int longestSubarrayWithSumK(int[] arr, int sum, int n) {
+        HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
         int maxLength = 0;
+        int curremtSum = 0;
 
-        // Traverse the array using the end pointer
-        while (end < nums.length) {
-            // Add the current element to the current sum
-            currentSum += nums[end];
+        for (int i = 0; i < n; i++) {
+            // Add current element to the prefix sum
+            curremtSum += arr[i];
 
-            // If the sum exceeds K, move the start pointer to reduce the window size
-            while (currentSum > K && start <= end) {
-                currentSum -= nums[start];
-                start++;
+            // If the prefix sum is equal to sum, update maxLength
+            if (curremtSum == sum) {
+                maxLength = i + 1;
             }
 
-            // If we found a subarray with sum equals to K, update maxLength
-            if (currentSum == K) {
-                maxLength = Math.max(maxLength, end - start + 1);
+            // If (curremtSum - sum) is found, update maxLength
+            if (prefixSumMap.containsKey(curremtSum - sum)) {
+                maxLength = Math.max(maxLength, i - prefixSumMap.get(curremtSum - sum));
             }
 
-            // Move the end pointer to expand the window
-            end++;
+            // Only store the first occurrence of the prefix sum
+            if (!prefixSumMap.containsKey(curremtSum)) {
+                prefixSumMap.put(curremtSum, i);
+            }
         }
 
         return maxLength;
@@ -68,10 +89,20 @@ public class Array_3_MaxSubArray {
 
     /**
      * <a href="https://leetcode.com/problems/maximum-subarray/">Maximum Subarray</a>
-     * <p>  Kadane's Algorithm  (Dynamic Sliding Window) </p>
+     * <p>  Kadane's Algorithm </p>
+     * can be done using Sliding Window ?
      */
-    public static int maxSubArray(int[] nums) {
-        return 0;
+    public static int maxSumOfSubarray(int[] nums) {
+        int sum = 0, maxSum = nums[0];
+        for (int num : nums) {
+            // Step 1
+            sum = sum + num;
+            // Step 2
+            maxSum = Math.max(maxSum, sum);
+            // Step 3
+            if (sum < 0) sum = 0;
+        }
+        return maxSum;
     }
 
 }
