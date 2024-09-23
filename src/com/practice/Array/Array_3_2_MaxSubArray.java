@@ -3,11 +3,10 @@ package com.practice.Array;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Array_3_MaxSubArray {
+public class Array_3_2_MaxSubArray {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));
-        System.out.println(longestSubarrayWithSumK(arr, 2, arr.length));
         System.out.println(maxSumOfSubarray(new int[]{5, 4, -1, 7, 8}));
     }
 
@@ -55,40 +54,6 @@ public class Array_3_MaxSubArray {
         }
 
         return maxSum;
-    }
-
-    /**
-     * https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k
-     * Variable-size Sliding Window or Two Pointers (with sum tracking)
-     * This function finds the longest subarray in arr where the total of its elements equals the given sum.
-     * 10, 5, 2, 7, 1, 9};  sum = 15; output = 4
-     */
-    public static int longestSubarrayWithSumK(int[] arr, int sum, int n) {
-        HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
-        int maxLength = 0;
-        int curremtSum = 0;
-
-        for (int i = 0; i < n; i++) {
-            // Add current element to the prefix sum
-            curremtSum += arr[i];
-
-            // If the prefix sum is equal to sum, update maxLength
-            if (curremtSum == sum) {
-                maxLength = i + 1;
-            }
-
-            // If (curremtSum - sum) is found, update maxLength
-            if (prefixSumMap.containsKey(curremtSum - sum)) {
-                maxLength = Math.max(maxLength, i - prefixSumMap.get(curremtSum - sum));
-            }
-
-            // Only store the first occurrence of the prefix sum
-            if (!prefixSumMap.containsKey(curremtSum)) {
-                prefixSumMap.put(curremtSum, i);
-            }
-        }
-
-        return maxLength;
     }
 
     /**
