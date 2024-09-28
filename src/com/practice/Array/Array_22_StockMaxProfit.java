@@ -10,12 +10,12 @@ public class Array_22_StockMaxProfit {
     }
 
     static int maxProfit(int[] prices) {
-        int maxPro = 0;
+        int maxProfit = 0;
         int minPrice = Integer.MAX_VALUE;
-        for (int j : prices) {
-            minPrice = Math.min(minPrice, j);
-            maxPro = Math.max(maxPro, j - minPrice);
+        for (int currentPrice : prices) {
+            minPrice = Math.min(minPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, currentPrice - minPrice);
         }
-        return maxPro;
+        return maxProfit;
     }
 }
