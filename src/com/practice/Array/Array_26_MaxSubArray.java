@@ -9,7 +9,7 @@ import java.util.Map;
  * This function finds the maximum sum of a subarray with exactly k elements, where all elements are distinct.
  * {1, 2, 3, 4, 5, 1, 2, 3}, k=3, Output=12 (3, 4, 5)
  */
-public class Array_3_2_MaxSubArray {
+public class Array_26_MaxSubArray {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));

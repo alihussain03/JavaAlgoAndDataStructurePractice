@@ -1,6 +1,6 @@
 package com.practice.Array;
 
-public class Array_3_3_MaxSumOfSubArray_Kadane {
+public class Array_27_MaxSumOfSubArray_Kadane {
     public static void main(String[] args) {
         System.out.println(maxSumOfSubarray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
     }

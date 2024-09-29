@@ -10,7 +10,7 @@ import java.util.Map;
  * {10, 5, 2, 7, 1, 9};  sum = 15; output = 4 -> { 5, 2, 7, 1}
  */
 
-public class Array_3_1_MaxSubArray_WithSumK {
+public class Array_3_MaxSubArray_WithSumK {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 1, 1, 1, 1};
         System.out.println("Using Brute Force: " + longestSubarrayWithSumKUsingBruteForce(arr, 3, arr.length));
