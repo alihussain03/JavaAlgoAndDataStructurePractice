@@ -1,5 +1,6 @@
 package com.practice.Array;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +14,15 @@ public class Array_26_MaxSubArray {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println(maxSumOfDistinctSubArrays(new int[]{100, 200, 300, 400}, 2));
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(100);
+        list.add(200);
+        list.add(300);
+        list.add(400);
+
+        System.out.println(maxSumOfDistinctSubArrays2(list, 2));
+
+        //   System.out.println(maxSumOfDistinctSubArrays2(new int[]{100, 200, 300, 400}, 3));
     }
 
     public static long maxSumOfDistinctSubArrays(int[] nums, int k) {
@@ -55,5 +65,24 @@ public class Array_26_MaxSubArray {
         return maxSum;
     }
 
+    public static long maxSumOfDistinctSubArrays2(ArrayList<Integer> nums, int k) {
+        if (nums.size() < k) {
+            return 0;
+        }
 
+        long maxSum, sum = 0;
+        int index = 0;
+        while (index < nums.size() && index < k) {
+            sum += nums.get(index);
+            index++;
+        }
+        maxSum = sum;
+        for (int i = 1; i < nums.size() - k + 1; i++) {
+            int perv = nums.get(i - 1);
+            int next = nums.get(i + k - 1);
+            sum = sum - perv + next;
+            maxSum = Math.max(maxSum, sum);
+        }
+        return maxSum;
+    }
 }
