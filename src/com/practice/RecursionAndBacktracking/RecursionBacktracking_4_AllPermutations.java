@@ -1,10 +1,10 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /* https://leetcode.com/problems/permutations/description/ */
-public class Recursion_4_AllPermutations {
+public class RecursionBacktracking_4_AllPermutations {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
         List<List<Integer>> res = permute(arr);

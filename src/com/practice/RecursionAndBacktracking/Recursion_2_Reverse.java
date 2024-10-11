@@ -1,4 +1,4 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 public class Recursion_2_Reverse {
     public static void main(String[] args) {

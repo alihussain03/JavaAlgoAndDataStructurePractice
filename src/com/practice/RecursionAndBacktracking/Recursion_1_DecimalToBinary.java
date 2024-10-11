@@ -1,4 +1,4 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 public class Recursion_1_DecimalToBinary {
     public static void main(String[] args) {

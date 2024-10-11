@@ -1,10 +1,10 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /* https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/ */
-public class Recursion_6_PhoneLetterCombinations {
+public class RecursionBacktracking_6_PhoneLetterCombinations {
     public static void main(String[] args) {
         List<String> ans = letterCombinations("23");
         System.out.println(ans.size());

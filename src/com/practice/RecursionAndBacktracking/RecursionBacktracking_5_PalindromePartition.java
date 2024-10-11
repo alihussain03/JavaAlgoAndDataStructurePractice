@@ -1,10 +1,10 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /* https://leetcode.com/problems/palindrome-partitioning/description/ */
-public class Recursion_5_PalindromePartition {
+public class RecursionBacktracking_5_PalindromePartition {
     public static void main(String[] args) {
         List<List<String>> res = partition("aab");
         res.forEach(System.out::println);

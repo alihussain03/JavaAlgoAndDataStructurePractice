@@ -1,4 +1,4 @@
-package com.practice.Recursion;
+package com.practice.RecursionAndBacktracking;
 
 /* https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card */
 
