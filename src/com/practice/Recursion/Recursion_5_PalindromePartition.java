@@ -3,10 +3,11 @@ package com.practice.Recursion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recursion_5_Partition {
+/* https://leetcode.com/problems/palindrome-partitioning/description/ */
+public class Recursion_5_PalindromePartition {
     public static void main(String[] args) {
         List<List<String>> res = partition("aab");
-        //  res.forEach(System.out::println);
+        res.forEach(System.out::println);
     }
 
     static List<List<String>> partition(String s) {
@@ -26,9 +27,9 @@ public class Recursion_5_Partition {
         }
 
         for (int i = ind; i < n; i++) {
-            System.out.println("Before :" + s.substring(ind, i + 1));
+            //   System.out.println("Before :" + s.substring(ind, i + 1));
             if (isPalindrome(s, ind, i)) {
-                System.out.println("After :" + s.substring(ind, i + 1));
+                //     System.out.println("After :" + s.substring(ind, i + 1));
                 cur.add(s.substring(ind, i + 1));
                 recur(s, i + 1, n, cur, res);
                 //cur.remove(cur.size() - 1);
