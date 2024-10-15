@@ -3,23 +3,26 @@ package com.practice.RecursionAndBacktracking;
 import java.util.ArrayList;
 import java.util.List;
 
-/* https://www.geeksforgeeks.org/print-subsequences-string/ */
+
 public class RecursionBacktracking_7_AllSubSequences {
     static List<String> listOfALLSequences = new ArrayList<>();
-    static ArrayList<Integer> listOfALLSequencesWithSumK = new ArrayList<>();
+
 
     public static void main(String[] args) {
         String s = "abc";
-        findSubSequences(s, "");
+        findSubSequencesForString(s, "");
         System.out.println(listOfALLSequences);
 
         int[] data = new int[]{1, 2, 3};
-        int k = 3;
-        findSubSequencesWithSumK(data, 0, "");
-        findSubSequencesWithSumK1(data, 0, listOfALLSequencesWithSumK, 3, 0);
+        findSubSequencesForIntegers(data, 0, "");
+
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        findSubSequencesForIntegers2(data, 0, res, temp);
     }
 
-    static void findSubSequences(String currentString, String currentAnswer) {
+    /* https://www.geeksforgeeks.org/print-subsequences-string/ */
+    static void findSubSequencesForString(String currentString, String currentAnswer) {
         //  System.out.println("String: " + currentString + " && Current Answer: " + currentAnswer);
         if (currentString.isEmpty()) {
             //  System.out.println(currentAnswer);
@@ -28,36 +31,32 @@ public class RecursionBacktracking_7_AllSubSequences {
         }
 
         //add adding 1st character in string
-        findSubSequences(currentString.substring(1), currentAnswer + currentString.charAt(0));
+        findSubSequencesForString(currentString.substring(1), currentAnswer + currentString.charAt(0));
 
         // Not adding first character of the string
         // because the concept of subsequence either
         // character will present or not
-        findSubSequences(currentString.substring(1), currentAnswer);
+        findSubSequencesForString(currentString.substring(1), currentAnswer);
     }
 
-    static void findSubSequencesWithSumK(int[] numbers, int index, String k) {
+    static void findSubSequencesForIntegers(int[] numbers, int index, String k) {
         if (index == numbers.length) {
             System.out.println(k);
             return;
         }
-        findSubSequencesWithSumK(numbers, index + 1, k + numbers[index] + " ");
-        findSubSequencesWithSumK(numbers, index + 1, k);
+        findSubSequencesForIntegers(numbers, index + 1, k + numbers[index] + " ");
+        findSubSequencesForIntegers(numbers, index + 1, k);
     }
 
-    static void findSubSequencesWithSumK1(int[] numbers, int index, ArrayList<Integer> output, int target, int sum) {
-        if (index == numbers.length) {
-            if (sum == target) {
-                System.out.println(output);
-            }
-
+    static void findSubSequencesForIntegers2(int[] arr, int index, List<List<Integer>> res, List<Integer> temp) {
+        if (index == arr.length) {
+            res.add(new ArrayList<>(temp));
             return;
         }
-        output.add(numbers[index]);
-        sum += numbers[index];
-        findSubSequencesWithSumK1(numbers, index + 1, output, target, sum);
-        output.removeLast();
-        sum -= numbers[index];
-        findSubSequencesWithSumK1(numbers, index + 1, output, target, sum);
+        temp.add(arr[index]);
+        findSubSequencesForIntegers2(arr, index + 1, res, temp);
+        temp.removeLast();
+        findSubSequencesForIntegers2(arr, index + 1, res, temp);
     }
+
 }
