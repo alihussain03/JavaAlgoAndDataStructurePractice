@@ -11,14 +11,17 @@ public class RecursionBacktracking_7_AllSubSequences {
     public static void main(String[] args) {
         String s = "abc";
         findSubSequencesForString(s, "");
-        System.out.println(listOfALLSequences);
+        System.out.println("All Sub sequences of string is " + listOfALLSequences);
 
         int[] data = new int[]{1, 2, 3};
+        System.out.println("Print Sub sequences of array is ");
         findSubSequencesForIntegers(data, 0, "");
 
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         findSubSequencesForIntegers2(data, 0, res, temp);
+        System.out.println("All Sub sequences of array is " + res);
+
     }
 
     /* https://www.geeksforgeeks.org/print-subsequences-string/ */
