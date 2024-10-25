@@ -1,6 +1,8 @@
 package com.Sorting;
 
 
+import com.util.ArrayUtil;
+
 public class SelectionSort {
     public static void main(String[] args) {
         int[] array = {13, 46, 24, 52, 20, 9};
@@ -17,12 +19,12 @@ public class SelectionSort {
         for (int i = 0; i <= array.length - 2; i++) {
             for (int j = i + 1; j <= array.length - 1; j++) {
                 if (array[j] < array[i]) {
-                    swap(array, i, j);
+                    ArrayUtil.swap(array, i, j);
                 }
             }
         }
         System.out.print("Selection sort: ");
-        printArray(array);
+        ArrayUtil.printArray(array);
     }
 
     static void selectionSort2(int[] array) {
@@ -36,24 +38,11 @@ public class SelectionSort {
 
             // Swap the found minimum element with the first unsorted element
             if (minIndex != i) {
-                swap(array, i, minIndex);
+                ArrayUtil.swap(array, i, minIndex);
             }
         }
 
         System.out.print("Selection sort: ");
-        printArray(array);
-    }
-
-    static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
-    static void printArray(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
+        ArrayUtil.printArray(array);
     }
 }

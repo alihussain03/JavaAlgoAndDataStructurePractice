@@ -1,12 +1,14 @@
 package com.Sorting;
 
+import com.util.ArrayUtil;
+
 /* The algorithm "bubbles" the largest unsorted element to its correct position by
 repeatedly comparing adjacent elements and swapping them if they are in the wrong order */
 public class BubbleSort {
     public static void main(String[] args) {
         int[] array = {13, 46, 24, 52, 20, 9};
         bubbleSort(array);
-        array = new int[]{1, 2, 3, 1};
+        array = new int[]{1, 2, 3};
         bubbleSort2(array);
     }
 
@@ -19,12 +21,12 @@ public class BubbleSort {
 
             for (int j = 0; j <= i - 1; j++) {
                 if (array[j] > array[j + 1]) {
-                    swap(array, j, j + 1);
+                    ArrayUtil.swap(array, j, j + 1);
                 }
             }
         }
         System.out.print("Bubble sort: ");
-        printArray(array);
+        ArrayUtil.printArray(array);
     }
 
     static void bubbleSort2(int[] array) {
@@ -34,7 +36,7 @@ public class BubbleSort {
             // Inner loop to compare adjacent elements
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
-                    swap(array, j, j + 1);
+                    ArrayUtil.swap(array, j, j + 1);
                     swapped = true; // Mark that a swap has occurred
                 }
             }
@@ -47,19 +49,6 @@ public class BubbleSort {
         }
 
         System.out.print("Bubble sort: ");
-        printArray(array);
-    }
-
-    static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
-    static void printArray(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
+        ArrayUtil.printArray(array);
     }
 }
