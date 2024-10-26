@@ -20,7 +20,7 @@ public class QuickSort {
     }
 
     static int findPivot(int[] array, int low, int high) {
-        int j = high, i = low + 1;
+        int j = high, i = low;
         int pivot = array[low];
         while (i <= j) { // Change this condition to avoid out-of-bounds
             while (i <= high && array[i] <= pivot) { // Ensure i does not exceed high
