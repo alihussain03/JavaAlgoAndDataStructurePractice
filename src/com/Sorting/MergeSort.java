@@ -4,7 +4,7 @@ import com.util.ArrayUtil;
 
 import java.util.ArrayList;
 
-/* 0(nlogn) */
+/* Merge sort is Divide and conquer */
 public class MergeSort {
     public static void main(String[] args) {
         int[] array = {13, 46, 24, 52, 20, 9};
@@ -12,10 +12,7 @@ public class MergeSort {
         ArrayUtil.printArray(array);
     }
 
-    /*
-     * Time complexity: O(n²)
-     * Space complexity: O(1)
-     */
+    /*  Time complexity: 0(nlogn) */
     static void mergeSort(int[] array, int low, int high) {
         if (low >= high) {
             return;

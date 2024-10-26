@@ -2,7 +2,7 @@ package com.Sorting;
 
 import com.util.ArrayUtil;
 
-// PPartitioning
+// Partitioning
 public class QuickSort {
     public static void main(String[] args) {
         int[] array = {3, 6, 8, 10, 1, 2, 1};
