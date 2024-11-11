@@ -2,9 +2,7 @@ package com.practice.Array;
 
 import java.util.HashSet;
 
-/**
- * <a href="https://leetcode.com/problems/contains-duplicate/">Contains Duplicate</a>
- */
+/* https://leetcode.com/problems/contains-duplicate/  */
 public class Array_4_ContainsDuplicate {
     public static void main(String[] args) {
         System.out.println("Contains Duplicate");
