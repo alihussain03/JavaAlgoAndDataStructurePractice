@@ -3,19 +3,62 @@ package com.practice.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 
 public class Array_3_MaxSubArray_HashingPatterns {
     public static void main(String[] args) {
-        int[] arr = {10, 5, 2, 7, 1, 9};
-        System.out.println("isSubarraySumPresent: " + isSubarraySumPresent(arr, 5));
-        findLongestSubArrayLengthWithSumK(arr);
-        arr = new int[]{10, 0, 0, 5, 2, 7};
-        findKExistAndReturnIndexes(arr, 5).forEach(System.out::println);
-        System.out.println("Smallest sub array with k sum is: " + findSmallestKSumSubArray(arr, 5));
-        System.out.println("Total Sub array with sum k: " + getTotalSubArraysWithSumK(arr, 5));
+        int[] arr = {10, 0, 1, 5, 2, 7};
+        int k = 5;
+        System.out.println("isSubarraySumPresent: " + isSubarraySumEqualToK(arr, k));
 
+        arr = new int[]{1, 2, 3, 7, 5};
+        k = 12;
+        String result = findIndicesOfSubarrayWithSumK(arr, k).stream().map(String::valueOf).collect(Collectors.joining(", "));
+        System.out.println("Indexes are : " + result);
+
+        arr = new int[]{10, 0, 0, 5, 2, 7};
+        findLongestSubArrayLengthWithSumK(arr);
+
+        System.out.println("Smallest sub array with k sum is: " + findSmallestKSumSubArray(arr, k));
+
+        System.out.println("Total Sub array with sum k: " + getTotalSubArraysWithSumK(arr, k));
     }
+
+    static boolean isSubarraySumEqualToK(int[] arr, int k) {
+        int sum = 0;
+        HashSet<Integer> set = new HashSet<>();
+        set.add(0);
+        for (int j : arr) {
+            sum += j;
+            int diff = sum - k;
+            if (set.contains(diff)) {
+                return true;
+            } else set.add(sum);
+        }
+        return false;
+    }
+
+    // https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
+    static ArrayList<Integer> findIndicesOfSubarrayWithSumK(int[] arr, int K) {
+        int sum = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(-1);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            int diff = sum - K;
+            if (map.containsKey(diff)) {
+                list.set(0, map.get(diff) + 1 + 1);
+                list.add(i + 1);
+                return list;
+            } else map.put(sum, i);
+        }
+        return list;
+    }
+
 
     /**
      * https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k
@@ -78,40 +121,6 @@ public class Array_3_MaxSubArray_HashingPatterns {
             right++;
         }
         return maxLength;
-    }
-
-    static boolean isSubarraySumPresent(int[] arr, int k) {
-        int sum = 0;
-        HashSet<Integer> set = new HashSet<>();
-        set.add(0);
-        for (int j : arr) {
-            sum += j;
-            int diff = sum - k;
-            if (set.contains(diff)) {
-                return true;
-            } else set.add(sum);
-        }
-        return false;
-    }
-
-    /* https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1 */
-    static ArrayList<Integer> findKExistAndReturnIndexes(int[] arr, int K) {// code here
-        int sum = 0;
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(-1);
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-            int diff = sum - K;
-            if (map.containsKey(diff)) {
-                list.set(0, map.get(diff) + 1 + 1);
-                list.add(i + 1);
-                return list;
-            } else map.put(sum, i);
-        }
-        return list;
     }
 
 
