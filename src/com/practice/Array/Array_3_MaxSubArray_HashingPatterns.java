@@ -140,6 +140,7 @@ public class Array_3_MaxSubArray_HashingPatterns {
         return count;
     }
 
+    // similar to findLongestSubArrayLengthWithSumKUsingHashMap
     static int findSmallestKSumSubArray(int[] arr, int K) {
         int min = Integer.MAX_VALUE;
         int sum = 0;
