@@ -12,17 +12,18 @@ public class Array_3_MaxSubArray_HashingPatterns {
         int k = 5;
         System.out.println("isSubarraySumPresent: " + isSubarraySumEqualToK(arr, k));
 
-        arr = new int[]{1, 2, 3, 7, 5};
-        k = 12;
+        arr = new int[]{1, 2, 3, 4, 5};
+        k = 9;
         String result = findIndicesOfSubarrayWithSumK(arr, k).stream().map(String::valueOf).collect(Collectors.joining(", "));
         System.out.println("Indexes are : " + result);
 
         arr = new int[]{10, 0, 0, 5, 2, 7};
         findLongestSubArrayLengthWithSumK(arr);
 
-        System.out.println("Smallest sub array with k sum is: " + findSmallestKSumSubArray(arr, k));
-
+        arr = new int[]{10, 0, 0, 5, 2, 7};
         System.out.println("Total Sub array with sum k: " + getTotalSubArraysWithSumK(arr, k));
+
+        System.out.println("Smallest sub array with k sum is: " + findSmallestKSumSubArray(arr, k));
     }
 
     static boolean isSubarraySumEqualToK(int[] arr, int k) {
@@ -58,7 +59,6 @@ public class Array_3_MaxSubArray_HashingPatterns {
         }
         return list;
     }
-
 
     /**
      * https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k
@@ -98,7 +98,8 @@ public class Array_3_MaxSubArray_HashingPatterns {
             sum += arr[i];
             int diff = sum - k;
             if (map.containsKey(diff)) {
-                max = Math.max(max, i - map.get(diff));
+                int length = i - map.get(diff);
+                max = Math.max(max, length);
             }
             if (!map.containsKey(sum)) map.put(sum, i);
         }
@@ -123,21 +124,6 @@ public class Array_3_MaxSubArray_HashingPatterns {
         return maxLength;
     }
 
-
-    static int findSmallestKSumSubArray(int[] arr, int K) {
-        int min = Integer.MAX_VALUE;
-        int sum = 0;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-            int diff = sum - K;
-            if (map.containsKey(diff)) min = Math.min(min, i - map.get(diff));
-            if (!map.containsKey(sum)) map.put(sum, i);
-        }
-        return (min == Integer.MAX_VALUE) ? -1 : min;
-    }
-
     /* https://leetcode.com/problems/subarray-sum-equals-k/description/ */
     static int getTotalSubArraysWithSumK(int[] arr, int k) {// code here
         int count = 0;
@@ -152,5 +138,19 @@ public class Array_3_MaxSubArray_HashingPatterns {
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return count;
+    }
+
+    static int findSmallestKSumSubArray(int[] arr, int K) {
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            int diff = sum - K;
+            if (map.containsKey(diff)) min = Math.min(min, i - map.get(diff));
+            if (!map.containsKey(sum)) map.put(sum, i);
+        }
+        return (min == Integer.MAX_VALUE) ? -1 : min;
     }
 }
