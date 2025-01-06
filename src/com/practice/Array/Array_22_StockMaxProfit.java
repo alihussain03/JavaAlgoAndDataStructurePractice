@@ -11,7 +11,7 @@ public class Array_22_StockMaxProfit {
 
     static int maxProfit(int[] prices) {
         int maxProfit = 0;
-        int minPrice = Integer.MAX_VALUE;
+        int minPrice = prices[0];
         for (int currentPrice : prices) {
             minPrice = Math.min(minPrice, currentPrice);
             maxProfit = Math.max(maxProfit, currentPrice - minPrice);
