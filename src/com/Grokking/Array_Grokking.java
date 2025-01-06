@@ -1,10 +1,10 @@
-package com.practice.Array.New;
+package com.Grokking;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Array_30_GrokkingArray {
+public class Array_Grokking {
     public static void main(String[] args) {
 
         int[] nums = {1, 2, 3, 4};
@@ -13,10 +13,9 @@ public class Array_30_GrokkingArray {
             System.out.print(i + " ");
         }
         Arrays.sort(nums);
-        System.out.println("\n----------\nArray has duplicate: " + checkDuplicateElementExistInArray(nums));
         System.out.println("\n----------\nArray has duplicate: " + checkDuplicateElementExistInArrayUsingHashSet(nums));
-        result = findDifferenceArray(nums);
         System.out.println("\n----------\nArray has duplicate: " + findDifferenceArray(nums));
+        System.out.println("\n----------\nLargest Altitude is : " + largestAltitude(nums));
     }
 
     static int[] linearSumOfArray(int[] nums) {
@@ -26,17 +25,6 @@ public class Array_30_GrokkingArray {
             result[i] = result[i - 1] + nums[i];
         }
         return result;
-    }
-
-    static boolean checkDuplicateElementExistInArray(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length - 1; j++) {
-                if (nums[i] == nums[j]) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     static boolean checkDuplicateElementExistInArrayUsingHashSet(int[] nums) {
@@ -49,7 +37,8 @@ public class Array_30_GrokkingArray {
         return false;
     }
 
-    static int[] findDifferenceArray(int[] nums) {
+    // Calculate the difference between left and right sums for each position in the array
+    static int[] findDifferenceArray2(int[] nums) {
         int n = nums.length;
         int[] differenceArray = new int[n];
         int left = 0;
@@ -69,9 +58,42 @@ public class Array_30_GrokkingArray {
             } else for (int k = i + 1; k < n; k++) {
                 right += nums[k];
             }
-            //final outout
+            //final output
             differenceArray[i] = Math.abs(right - left);
         }
         return differenceArray;
+    }
+
+    static int[] findDifferenceArray(int[] nums) {
+        int n = nums.length;
+        int[] differenceArray = new int[n];
+        int leftSum = 0, rightSum = 0;
+
+        // Calculate the total sum of the array
+        for (int i = 0; i < nums.length; i++) {
+            rightSum += nums[i];
+        }
+
+        // Calculate the difference between left and right sums for each position
+        for (int i = 0; i < nums.length; i++) {
+            rightSum -= nums[i];
+            differenceArray[i] = Math.abs(rightSum - leftSum);
+            leftSum += nums[i];
+        }
+
+        return differenceArray;
+    }
+
+    static int largestAltitude(int[] gain) {
+        int currentAltitude = 0; // To store the current altitude during iteration
+        int maxAltitude = 0; // To store the maximum altitude encountered
+
+        // Iterate through the gain array, updating the current and max altitudes
+        for (int i : gain) {
+            currentAltitude += i;
+            maxAltitude = Math.max(currentAltitude, maxAltitude);
+        }
+
+        return maxAltitude;
     }
 }
