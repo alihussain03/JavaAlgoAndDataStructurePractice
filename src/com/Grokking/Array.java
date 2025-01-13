@@ -4,17 +4,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Array_Grokking {
+public class Array {
     public static void main(String[] args) {
 
-        int[] nums = {1, 2, 3, 4};
+        int[] nums = {7, 1, 4};
         int[] result = linearSumOfArray(nums);
         for (int i : result) {
             System.out.print(i + " ");
         }
-        Arrays.sort(nums);
+      //  Arrays.sort(nums);
         System.out.println("\n----------\nArray has duplicate: " + checkDuplicateElementExistInArrayUsingHashSet(nums));
-        System.out.println("\n----------\nArray has duplicate: " + findDifferenceArray(nums));
+        System.out.println("\n----------\nArray has duplicate: ");
+        Arrays.stream(findDifferenceArray(nums)).forEach(System.out::println);
         System.out.println("\n----------\nLargest Altitude is : " + largestAltitude(nums));
     }
 
@@ -73,14 +74,12 @@ public class Array_Grokking {
         for (int i = 0; i < nums.length; i++) {
             rightSum += nums[i];
         }
-
         // Calculate the difference between left and right sums for each position
         for (int i = 0; i < nums.length; i++) {
             rightSum -= nums[i];
             differenceArray[i] = Math.abs(rightSum - leftSum);
             leftSum += nums[i];
         }
-
         return differenceArray;
     }
 
@@ -93,7 +92,6 @@ public class Array_Grokking {
             currentAltitude += i;
             maxAltitude = Math.max(currentAltitude, maxAltitude);
         }
-
         return maxAltitude;
     }
 }
