@@ -24,6 +24,7 @@
 *.iml
 .idea/*.xml
 JavaAlgoAndDataStructurePratice/.idea/
+out/*
 =======
 .idea/
 
