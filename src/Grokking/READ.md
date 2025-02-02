@@ -107,4 +107,22 @@ Recursion is a method of solving a problem by having a function call itself.
         - Built-in Optimization: Some languages (like functional programming languages) optimize tail-recursive
           functions automatically.
 - Recursive Algorithm strategies
+    - Divide and conquer: The divide & conquer strategy is a recursive algorithm design technique that involves breaking
+      down a problem into smaller subproblems, solving each subproblem independently, and combining the solutions to
+      obtain the final result. The divide & conquer is suitable for problems that exhibit overlapping subproblems and
+      can be efficiently solved by combining the solutions of smaller instances.
+        - Divide: Break the original problem into smaller, more manageable subproblems. This step can often be
+          represented
+          by recursively calling the same algorithm on the subproblems.
+        - Conquer: Solve the subproblems independently. If the subproblems are small enough, they can be solved directly
+          using a base case or a simple algorithm.
+        - Combine: Combine the subproblems' solutions to obtain the final solution to the original problem. This step
+          may
+          involve merging or aggregating the subproblem solutions or applying additional operations to obtain the
+          desired result.
+    - Dynamic programing
+        - Dynamic programming is a technique used to solve complex problems by breaking them down into overlapping
+          subproblems and solving each subproblem only once. It is often used to optimize recursive algorithms by
+          storing and reusing the results of subproblems.
+        -
 - Complexity Analysis
