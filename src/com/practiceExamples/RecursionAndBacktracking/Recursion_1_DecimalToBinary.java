@@ -17,8 +17,6 @@ public class Recursion_1_DecimalToBinary {
         if (n == 0) {
             return "0";
         }
-
-
         StringBuilder result = new StringBuilder();
         while (n != 0) {
             int remainder = n % -2;  // Get the remainder when dividing by -2
@@ -40,12 +38,11 @@ public class Recursion_1_DecimalToBinary {
 
     static void decimalToBinary(int n) {
         StringBuilder binary = new StringBuilder();
-        int remainder;
+
         while (n > 0) {
-            remainder = n % 2;
-            binary.insert(0, remainder);
+            binary.insert(0, n % 2);
             n = n / 2;
         }
-        System.out.println(binary.toString());
+        System.out.println(binary);
     }
 }
