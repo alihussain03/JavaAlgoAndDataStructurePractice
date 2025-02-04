@@ -1,7 +1,7 @@
 package com.Sorting;
 
 
-import com.util.ArrayUtil;
+import com.util.CollectionUtil;
 
 public class SelectionSort {
     public static void main(String[] args) {
@@ -19,12 +19,12 @@ public class SelectionSort {
         for (int i = 0; i <= array.length - 2; i++) {
             for (int j = i + 1; j <= array.length - 1; j++) {
                 if (array[j] < array[i]) {
-                    ArrayUtil.swap(array, i, j);
+                    CollectionUtil.swapArrayElements(array, i, j);
                 }
             }
         }
         System.out.print("Selection sort: ");
-        ArrayUtil.printArray(array);
+        CollectionUtil.printArray(array);
     }
 
     static void selectionSort2(int[] array) {
@@ -38,11 +38,11 @@ public class SelectionSort {
 
             // Swap the found minimum element with the first unsorted element
             if (minIndex != i) {
-                ArrayUtil.swap(array, i, minIndex);
+                CollectionUtil.swapArrayElements(array, i, minIndex);
             }
         }
 
         System.out.print("Selection sort: ");
-        ArrayUtil.printArray(array);
+        CollectionUtil.printArray(array);
     }
 }

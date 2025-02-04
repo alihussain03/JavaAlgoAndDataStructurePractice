@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.ArrayUtil;
+import com.util.CollectionUtil;
 
 /* one element at a time by repeatedly taking the next unsorted element and inserting it into its correct
 position within the already sorted portion of the array. */
@@ -9,9 +9,14 @@ public class InsertionSort {
         int[] array = {13, 46, 24, 52, 20, 9};
         insertionSort(array);
         array = new int[]{13, 46, 24, 52, 20, 9};
-        insertionSort2(array);
+        insertionSortWhileLoop(array);
         array = new int[]{13, 46, 24, 52, 20, 9};
-        insertionSort3(array);
+        insertionSortSwap(array);
+
+        array = new int[]{13, 46, 24, 52, 20, 9};
+        System.out.print("\nInsertion sort using recursion: ");
+        insertionSortUsingRecursion(array, 1);
+        CollectionUtil.printArray(array);
     }
 
     /*
@@ -29,10 +34,10 @@ public class InsertionSort {
             array[j + 1] = key;
         }
         System.out.print("Insertion sort: ");
-        ArrayUtil.printArray(array);
+        CollectionUtil.printArray(array);
     }
 
-    static void insertionSort2(int[] array) {
+    static void insertionSortWhileLoop(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int key = array[i]; // The element to be inserted
             int j = i - 1;
@@ -46,23 +51,34 @@ public class InsertionSort {
             // Insert 'key' into the correct position
             array[j + 1] = key;
         }
-        System.out.print("Insertion sort: ");
-        ArrayUtil.printArray(array);
+        System.out.print("\nInsertion sort: ");
+        CollectionUtil.printArray(array);
     }
 
-    static void insertionSort3(int[] array) {
+    static void insertionSortSwap(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int j = i - 1;
 
             // Keep swapping until the current element is in the correct position
             while (j >= 0 && array[j + 1] < array[j]) {
-                ArrayUtil.swap(array, j + 1, j);
+                CollectionUtil.swapArrayElements(array, j + 1, j);
                 j--;
             }
         }
-        System.out.print("Insertion sort using swapping: ");
-        ArrayUtil.printArray(array);
+        System.out.print("\nInsertion sort using swapping: ");
+        CollectionUtil.printArray(array);
     }
 
+    static void insertionSortUsingRecursion(int[] array, int i) {
+        if (i == array.length) return;
+        int key = array[i];
+        int j = i - 1;
 
+        while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = key;
+        insertionSortUsingRecursion(array, i + 1);
+    }
 }

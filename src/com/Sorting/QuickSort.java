@@ -1,13 +1,13 @@
 package com.Sorting;
 
-import com.util.ArrayUtil;
+import com.util.CollectionUtil;
 
 // Partitioning
 public class QuickSort {
     public static void main(String[] args) {
         int[] array = {3, 6, 8, 10, 1, 2, 1};
         quickSort(array, 0, array.length - 1);
-        ArrayUtil.printArray(array);
+        CollectionUtil.printArray(array);
     }
 
 
@@ -30,10 +30,10 @@ public class QuickSort {
                 j--;
             }
             if (i < j) {
-                ArrayUtil.swap(array, i, j); // Correct swap between elements
+                CollectionUtil.swapArrayElements(array, i, j); // Correct swap between elements
             }
         }
-        ArrayUtil.swap(array, low, j);
+        CollectionUtil.swapArrayElements(array, low, j);
 
         return j;
     }

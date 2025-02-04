@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.ArrayUtil;
+import com.util.CollectionUtil;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] array = {13, 46, 24, 52, 20, 9};
         mergeSort(array, 0, array.length - 1);
-        ArrayUtil.printArray(array);
+        CollectionUtil.printArray(array);
     }
 
     /*  Time complexity: 0(nlogn) */
