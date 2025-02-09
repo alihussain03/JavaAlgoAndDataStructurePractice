@@ -8,18 +8,22 @@ import java.util.ArrayList;
 public class MergeSort {
     public static void main(String[] args) {
         int[] array = {13, 46, 24, 52, 20, 9};
-        mergeSort(array, 0, array.length - 1);
+        mergeSortUsingArrayList(array, 0, array.length - 1);
+        CollectionUtil.printArray(array);
+
+        array = new int[]{13, 46, 24, 52, 20, 9};
+        mergeSortEfficient(array, 0, array.length - 1);
         CollectionUtil.printArray(array);
     }
 
     /*  Time complexity: 0(nlogn) */
-    static void mergeSort(int[] array, int low, int high) {
+    static void mergeSortUsingArrayList(int[] array, int low, int high) {
         if (low >= high) {
             return;
         }
         int mid = (low + high) / 2;
-        mergeSort(array, low, mid);
-        mergeSort(array, mid + 1, high);
+        mergeSortUsingArrayList(array, low, mid);
+        mergeSortUsingArrayList(array, mid + 1, high);
         mergeArray(array, low, mid, high);
     }
 
@@ -49,7 +53,17 @@ public class MergeSort {
         }
     }
 
-    static void mergeArray2(int[] array, int low, int mid, int high) {
+    static void mergeSortEfficient(int[] array, int low, int high) {
+        if (low >= high) {
+            return;
+        }
+        int mid = (low + high) / 2;
+        mergeSortEfficient(array, low, mid);
+        mergeSortEfficient(array, mid + 1, high);
+        mergeArrayEfficient(array, low, mid, high);
+    }
+
+    static void mergeArrayEfficient(int[] array, int low, int mid, int high) {
         // Temporary array to store merged elements
         int[] temp = new int[high - low + 1];
         int left = low, right = mid + 1, k = 0;
