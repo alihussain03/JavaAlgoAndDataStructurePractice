@@ -1,6 +1,6 @@
 package Grokking.Arrray;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 public class LinearSumOfArray {
     public static void main(String[] args) {

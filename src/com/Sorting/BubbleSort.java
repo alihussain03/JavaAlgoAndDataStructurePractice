@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 /* Bubble Sort repeatedly compares adjacent elements and swaps them if they are out of order,
    causing the largest unsorted element to 'bubble' to the correct position at the end of the array */

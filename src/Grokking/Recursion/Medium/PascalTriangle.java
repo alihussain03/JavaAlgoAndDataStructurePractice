@@ -1,6 +1,6 @@
 package Grokking.Recursion.Medium;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 import java.util.ArrayList;
 import java.util.List;

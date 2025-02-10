@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 /*
  * In each iteration, find the smallest element in the unsorted portion(left portion starting from 0 index)

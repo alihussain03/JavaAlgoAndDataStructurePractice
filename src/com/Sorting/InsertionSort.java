@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 /* one element at a time by repeatedly taking the next unsorted element and inserting it into its correct
 position within the already sorted portion of the array. */

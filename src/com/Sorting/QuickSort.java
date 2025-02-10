@@ -1,6 +1,6 @@
 package com.Sorting;
 
-import com.util.CollectionUtil;
+import util.CollectionUtil;
 
 import java.util.Arrays;
 import java.util.List;
