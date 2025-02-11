@@ -13,17 +13,20 @@ public class CheckPrime {
         if (number == 2) {
             return true; // 2 is the only even prime number
         }
-        return checkDivisors(number, 2);
+        if (number % 2 == 0) {
+            return false;
+        }
+        return checkDivisors(number, 3);
     }
 
     static boolean checkDivisors(int number, int divisor) {
-        if (divisor > Math.sqrt(number)) {
+        if (divisor * divisor > number) {
             return true; // Base case 3
         }
         if (number % divisor == 0) {
             return false; // Number is divisible, not prime
         }
-        return checkDivisors(number, divisor + 1);
+        return checkDivisors(number, divisor + 2);
     }
 
     static boolean checkPrimeUsingIteration(int number) {
@@ -32,6 +35,9 @@ public class CheckPrime {
         }
         if (number == 2) {
             return true;
+        }
+        if (number % 2 == 0) {
+            return false;
         }
         for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) return false;
