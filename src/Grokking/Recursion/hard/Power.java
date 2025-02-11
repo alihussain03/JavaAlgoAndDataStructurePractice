@@ -5,10 +5,12 @@ public class Power {
         int a = 2, n = 5;
         int power = 1;
 
-     //   System.out.println("Using while Loop: " + calculatePowerUsingWhileLoop(a, n, power));
+        System.out.println("Using while Loop: " + calculatePowerUsingWhileLoop(a, n, power));
 
         int k = calculatePowerUsingRecursion(a, n);
         System.out.println("Recursive Recursion: " + k);
+
+        System.out.println("Efficient solution: " + calculatePower(2, 5));
     }
 
     static int calculatePowerUsingWhileLoop(int a, int n, int power) {
