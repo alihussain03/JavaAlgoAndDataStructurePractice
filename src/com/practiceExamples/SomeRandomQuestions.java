@@ -9,6 +9,8 @@ public class SomeRandomQuestions {
     public static void main(String[] args) {
 
 
+        System.out.println(reverseString("Hello", 0));
+
         System.out.println("Duplicate Characters and their count: ");
         duplicateCharactersAndCount("manojpandey");
         System.out.println("--------------------");
@@ -27,10 +29,6 @@ public class SomeRandomQuestions {
 
         System.out.println("\nReverse array: ");
         reverseArray(new String[]{"Hello", "World", "Java", "Developer", "2025"});
-        System.out.println("--------------------");
-
-        System.out.println("\nReverse a number: ");
-        reverseNumber(12345);
         System.out.println("--------------------");
 
         System.out.println("\nFibonacci Series: ");
@@ -123,6 +121,20 @@ public class SomeRandomQuestions {
         System.out.println(reversedString);
     }
 
+    static String reverseString(String str, int index) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        if (index == str.length()) {
+            return "";
+        }
+
+        reverseString(str, index + 1);
+        StringBuilder reversedString = new StringBuilder();
+        reversedString.append(str.charAt(index));
+        return reversedString.toString();
+    }
+
     static void reverseArray(String[] str) {
         if (str == null || str.length == 0) {
             System.out.println("Input array is empty.");
@@ -138,16 +150,6 @@ public class SomeRandomQuestions {
             right--;
         }
         System.out.println(Arrays.toString(str));
-    }
-
-    static void reverseNumber(int num) {
-        int reversedNum = 0;
-        while (num != 0) {
-            int digit = num % 10;
-            reversedNum = reversedNum * 10 + digit;
-            num /= 10;
-        }
-        System.out.println(reversedNum);
     }
 
     static void fibonacci(int num) {

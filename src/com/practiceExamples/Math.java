@@ -2,12 +2,14 @@ package com.practiceExamples;
 
 public class Math {
     public static void main(String[] args) {
-        System.out.print("Reverse Number & Checking overflow as well: " + reverse(1534236469));
+        System.out.print("Reverse Number & Checking overflow as well: " + reverse(2147483647));
         System.out.print("\nCheck valid palindrome: " + validPalindrome(-121));
 
     }
 
-    /* https://leetcode.com/problems/convert-date-to-binary/description/ */
+    /* https://leetcode.com/problems/convert-date-to-binary/description/
+     * 2147483647 will create integer overflow
+     * */
     public static int reverse(int x) {
         int remainder = 0;
         boolean isNegative = x < 0;

@@ -4,15 +4,20 @@ public class Recursion_1_DecimalToBinary {
     public static void main(String[] args) {
         System.out.println("Decimal to Base -2: " + baseNeg2(-2));
 
-        int decimal = 13;
+        int decimal = 2;
         System.out.print("Decimal to Binary Using Recursion: ");
         decimalToBinaryUsingRecursion(decimal);
 
-        System.out.print("\nDecimal to Binary: ");
+        System.out.print("\nDecimal to Binary Using iteration: ");
         decimalToBinary(decimal);
     }
 
-    /* https://leetcode.com/problems/convert-to-base-2/ */
+    /* https://leetcode.com/problems/convert-to-base-2/
+     *
+     * In base -2, the remainder should always be either 0 or 1. If the remainder turns out to be negative,
+     *  we need to adjust it by adding 2 to make it non-negative. This adjustment ensures that the remainder
+     * remains within the valid range of base -2, and we also need to compensate by modifying the quotient accordingly.
+     */
     static String baseNeg2(int n) {
         if (n == 0) {
             return "0";
@@ -38,7 +43,6 @@ public class Recursion_1_DecimalToBinary {
 
     static void decimalToBinary(int n) {
         StringBuilder binary = new StringBuilder();
-
         while (n > 0) {
             binary.insert(0, n % 2);
             n = n / 2;

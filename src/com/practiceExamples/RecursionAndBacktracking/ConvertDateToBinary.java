@@ -25,6 +25,7 @@ public class ConvertDateToBinary {
         return efficientSolution(date);
     }
 
+    //Using Java's built-in method
     public String efficientSolution(String date) {
         String[] parts = date.split("-");
         return Integer.toBinaryString(Integer.parseInt(parts[0])) + "-" + Integer.toBinaryString(Integer.parseInt(parts[1])) + "-" + Integer.toBinaryString(Integer.parseInt(parts[2]));
