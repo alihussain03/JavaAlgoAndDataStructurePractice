@@ -1,11 +1,9 @@
-package com.practiceExamples;
+package com.practiceExamples.Math;
 
-public class Math {
+public class ReverseNumber {
     public static void main(String[] args) {
         System.out.print("Reverse Number & Checking overflow as well: " + reverse(2147483647));
-        System.out.print("\nCheck valid palindrome: " + validPalindrome(-121));
-
-    }
+            }
 
     /* https://leetcode.com/problems/convert-date-to-binary/description/
      * 2147483647 will create integer overflow
@@ -34,5 +32,14 @@ public class Math {
             x = x / 10;
         }
         return remainder == temp;
+    }
+
+    static String decimalToBinary(int n) {
+        StringBuilder binary = new StringBuilder();
+        while (n > 0) {
+            binary.insert(0, n % 2);
+            n = n / 2;
+        }
+        return binary.toString();
     }
 }

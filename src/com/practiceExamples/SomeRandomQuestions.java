@@ -7,10 +7,6 @@ import java.util.stream.Collectors;
 
 public class SomeRandomQuestions {
     public static void main(String[] args) {
-
-
-        System.out.println(reverseString("Hello", 0));
-
         System.out.println("Duplicate Characters and their count: ");
         duplicateCharactersAndCount("manojpandey");
         System.out.println("--------------------");
@@ -119,20 +115,6 @@ public class SomeRandomQuestions {
             reversedString.append(charArray[i]);
         }
         System.out.println(reversedString);
-    }
-
-    static String reverseString(String str, int index) {
-        if (str == null || str.isEmpty()) {
-            return "";
-        }
-        if (index == str.length()) {
-            return "";
-        }
-
-        reverseString(str, index + 1);
-        StringBuilder reversedString = new StringBuilder();
-        reversedString.append(str.charAt(index));
-        return reversedString.toString();
     }
 
     static void reverseArray(String[] str) {

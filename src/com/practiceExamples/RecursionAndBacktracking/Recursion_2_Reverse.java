@@ -8,6 +8,9 @@ public class Recursion_2_Reverse {
 
         System.out.println("\nReverse String Using Recursion : " + reverseStringUsingRecursion("Hello", ""));
 
+        System.out.println("\nReverse String Using Recursion : " + reverseStringUsingRecursion1("Hello", 0, ""));
+
+
         System.out.print("\nReverse Array Using Recursion : ");
 
         char[] data = new char[]{'H', 'e'};
@@ -28,6 +31,17 @@ public class Recursion_2_Reverse {
         if (str.isEmpty()) return result;
         result += (str.charAt(str.length() - 1));
         return reverseStringUsingRecursion(str.substring(0, str.length() - 1), result);
+    }
+
+    static String reverseStringUsingRecursion1(String str, int index, String result) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        if (index == str.length()) {
+            return result;
+        }
+        result = str.charAt(index) + result;
+        return reverseStringUsingRecursion1(str, index + 1, result);
     }
 
     static void reverseArray(char[] s) {
