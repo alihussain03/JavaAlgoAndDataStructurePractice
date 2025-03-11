@@ -1,6 +1,7 @@
 package AlgoMaster.Array;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MajorityElement_BoyerMooreVoting {
@@ -9,7 +10,8 @@ public class MajorityElement_BoyerMooreVoting {
         int[] nums = new int[]{0, 0, 0};
         System.out.println("Majority Element is : " + majorityElement(nums));
         System.out.println("Majority Element using second solution is : " + majorityElement2(nums));
-        System.out.println("Majority Element using third solution is : " + majorityElement3(nums));
+        System.out.println("Majority Element using HashMap is : " + majorityElement3(nums));
+        System.out.println("Majority Element using third solution is : " + twoMajorityElement(nums));
     }
 
     /* https://leetcode.com/problems/majority-element/description/ */
@@ -17,7 +19,7 @@ public class MajorityElement_BoyerMooreVoting {
         int count = 0;
         int candidate = 0;
 
-        //applying the algorithm:
+        //step1: applying Boyer Moore Voting algorithm:
         for (int j : arr) {
             if (count == 0) {
                 count = 1;
@@ -26,7 +28,7 @@ public class MajorityElement_BoyerMooreVoting {
             else count--;
         }
 
-        //checking if the stored element is the majority element:
+        //step2: verify if the stored element is the majority element:
         count = 0;
         for (int j : arr) {
             if (j == candidate) count++;
@@ -47,8 +49,19 @@ public class MajorityElement_BoyerMooreVoting {
         return candidate;
     }
 
+    public static int majorityElement3(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int j : arr) {
+            map.put(j, map.getOrDefault(j, 0) + 1);
+            if (map.get(j) > (arr.length / 2)) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
     /* https://leetcode.com/problems/majority-element-ii/description/ */
-    public static List<Integer> majorityElement3(int[] nums) {
+    public static List<Integer> twoMajorityElement(int[] nums) {
         List<Integer> result = new ArrayList<>();
         int count1 = 0, count2 = 0;
         int candidate1 = Integer.MIN_VALUE, candidate2 = Integer.MIN_VALUE;
@@ -78,5 +91,6 @@ public class MajorityElement_BoyerMooreVoting {
         if (count2 > nums.length / 3) result.add(candidate2);
         return result;
     }
+
 
 }
