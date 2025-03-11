@@ -13,7 +13,6 @@ public class TreeNode {
         if (node == null) {
             return;
         }
-
         printBST(node.left);
         System.out.print(node.val + " ");
         printBST(node.right);

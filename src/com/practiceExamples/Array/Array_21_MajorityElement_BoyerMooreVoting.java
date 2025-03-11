@@ -38,7 +38,7 @@ public class Array_21_MajorityElement_BoyerMooreVoting {
             else count--;
         }
 
-        //checking if the stored element is the majority element:
+        //counts how many times the candidate appears in the array:
         count = 0;
         for (int j : arr) {
             if (j == candidate) count++;
