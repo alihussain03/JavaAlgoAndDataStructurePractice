@@ -21,7 +21,7 @@ public class Array_4_ContainsDuplicate {
         return false;
     }
 
-    // This is advance solution. will check it later.
+    // This is an advance solution. Will check it later.
     public static boolean containsDuplicate1(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {
