@@ -5,11 +5,11 @@ import util.CollectionUtil;
 /* https://leetcode.com/problems/move-zeroes/ */
 public class MoveZerosToRight {
     public static void main(String[] args) {
-        int[] nums = {0, 1, 0, 3, 12};
+        int[] numArray = {0, 1, 0, 3, 12};
         System.out.println("----------\nMove zeros to end: ");
-        moveZerosToEnd(nums);
+        moveZerosToEnd(numArray);
         System.out.println("----------\nMove zeros to end: ");
-        moveZerosToEnd2(nums);
+        moveZerosToEnd2(numArray);
     }
 
     private static void moveZerosToEnd(int[] nums) {

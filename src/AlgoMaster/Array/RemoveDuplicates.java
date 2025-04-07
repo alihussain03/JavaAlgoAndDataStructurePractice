@@ -4,18 +4,18 @@ import util.CollectionUtil;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
-        int[] nums = {0, 0, 1, 1, 2, 2, 3, 3, 4};
-        int k = removeDuplicatesInPlaceAndReturnUniqueCount(nums);
+        int[] numArray = {0, 0, 1, 1, 2, 2, 3, 3, 4};
+        int k = removeDuplicatesInPlaceAndReturnUniqueCount(numArray);
         System.out.println("Number of unique elements: " + k);
         System.out.println("Unique elements are: ");
-        CollectionUtil.printArray(nums);
+        CollectionUtil.printArray(numArray);
 
         System.out.println("----------");
-        int[] nums2 = {0, 0, 1, 1, 1, 1, 2, 3, 3};
-        int k2 = removeDuplicatesKeepAtMostTwo(nums2);
+        int[] numArray2 = {0, 0, 1, 1, 1, 1, 2, 3, 3};
+        int k2 = removeDuplicatesKeepAtMostTwo(numArray2);
         System.out.println("Number of unique elements: " + k2);
         System.out.println("Unique elements at most twice: ");
-        CollectionUtil.printArray(nums2);
+        CollectionUtil.printArray(numArray2);
     }
 
     /**

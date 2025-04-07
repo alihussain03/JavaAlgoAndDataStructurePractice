@@ -6,12 +6,11 @@ import java.util.List;
 
 public class MajorityElement_BoyerMooreVoting {
     public static void main(String[] args) {
-
-        int[] nums = new int[]{0, 0, 0};
-        System.out.println("Majority Element is : " + majorityElement(nums));
-        System.out.println("Majority Element using second solution is : " + majorityElement2(nums));
-        System.out.println("Majority Element using HashMap is : " + majorityElement3(nums));
-        System.out.println("Majority Element using third solution is : " + twoMajorityElement(nums));
+        int[] numArray = new int[]{0, 0, 0};
+        System.out.println("Majority Element is : " + majorityElement(numArray));
+        System.out.println("Majority Element using second solution is : " + majorityElement2(numArray));
+        System.out.println("Majority Element using HashMap is : " + majorityElement3(numArray));
+        System.out.println("Majority Element using third solution is : " + twoMajorityElement(numArray));
     }
 
     /* https://leetcode.com/problems/majority-element/description/ */
