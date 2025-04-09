@@ -14,32 +14,32 @@ public class MajorityElement_BoyerMooreVoting {
     }
 
     /* https://leetcode.com/problems/majority-element/description/ */
-    public static int majorityElement(int[] arr) {
+    public static int majorityElement(int[] numArray) {
         int count = 0;
         int candidate = 0;
 
         //step1: applying Boyer Moore Voting algorithm:
-        for (int j : arr) {
+        for (int num : numArray) {
             if (count == 0) {
                 count = 1;
-                candidate = j;
-            } else if (candidate == j) count++;
+                candidate = num;
+            } else if (candidate == num) count++;
             else count--;
         }
 
         //step2: verify if the stored element is the majority element:
         count = 0;
-        for (int j : arr) {
+        for (int j : numArray) {
             if (j == candidate) count++;
         }
 
-        return (count > (arr.length / 2)) ? candidate : -1;
+        return (count > (numArray.length / 2)) ? candidate : -1;
     }
 
-    public static int majorityElement2(int[] nums) {
+    public static int majorityElement2(int[] numArray) {
         int count = 0;
         int candidate = 0;
-        for (int num : nums) {
+        for (int num : numArray) {
             if (count == 0) {
                 candidate = num;
             }
@@ -48,24 +48,24 @@ public class MajorityElement_BoyerMooreVoting {
         return candidate;
     }
 
-    public static int majorityElement3(int[] arr) {
+    public static int majorityElement3(int[] numArray) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        for (int j : arr) {
-            map.put(j, map.getOrDefault(j, 0) + 1);
-            if (map.get(j) > (arr.length / 2)) {
-                return j;
+        for (int num : numArray) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            if (map.get(num) > (numArray.length / 2)) {
+                return num;
             }
         }
         return -1;
     }
 
     /* https://leetcode.com/problems/majority-element-ii/description/ */
-    public static List<Integer> twoMajorityElement(int[] nums) {
+    public static List<Integer> twoMajorityElement(int[] numArray) {
         List<Integer> result = new ArrayList<>();
         int count1 = 0, count2 = 0;
         int candidate1 = Integer.MIN_VALUE, candidate2 = Integer.MIN_VALUE;
 
-        for (int num : nums) {
+        for (int num : numArray) {
             if (num == candidate1) {
                 count1++;
             } else if (num == candidate2) {
@@ -82,12 +82,12 @@ public class MajorityElement_BoyerMooreVoting {
             }
         }
         count1 = count2 = 0;
-        for (int num : nums) {
+        for (int num : numArray) {
             if (num == candidate1) count1++;
             if (num == candidate2) count2++;
         }
-        if (count1 > nums.length / 3) result.add(candidate1);
-        if (count2 > nums.length / 3) result.add(candidate2);
+        if (count1 > numArray.length / 3) result.add(candidate1);
+        if (count2 > numArray.length / 3) result.add(candidate2);
         return result;
     }
 
