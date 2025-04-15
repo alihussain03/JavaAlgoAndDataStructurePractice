@@ -1,39 +1,40 @@
 package com.oop.Entity;
 
 public class Student extends Person {
-    int rollNo;
-    String course;
-    private static int fee = 1000;
 
-    public Student(String name, int age, int rollNo, String course) {
-        super(name, age);
-        this.rollNo = rollNo;
-        this.course = course;
-    }
+  private static int fee = 1000;
+  int rollNo;
+  String course;
 
-    public int getRollNo() {
-        return rollNo;
-    }
+  public Student(String name, int age, int rollNo, String course) {
+    super(name, age);
+    this.rollNo = rollNo;
+    this.course = course;
+  }
 
-    public void setRollNo(int rollNo) {
-        this.rollNo = rollNo;
-    }
+  public int getRollNo() {
+    return rollNo;
+  }
 
-    public String getCourse() {
-        return course;
-    }
+  public void setRollNo(int rollNo) {
+    this.rollNo = rollNo;
+  }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
+  public String getCourse() {
+    return course;
+  }
 
-    @Override
-    public void introduce() {
-        super.introduce();
-        System.out.println("I am studying " + course + " and my roll number is " + rollNo + ".");
-    }
+  public void setCourse(String course) {
+    this.course = course;
+  }
 
-    public void study() {
-        System.out.println("I am studying.");
-    }
+  @Override
+  public void introduce() {
+    super.introduce();
+    System.out.println("I am studying " + course + " and my roll number is " + rollNo + ".");
+  }
+
+  public void study() {
+    System.out.println("I am studying.");
+  }
 }
