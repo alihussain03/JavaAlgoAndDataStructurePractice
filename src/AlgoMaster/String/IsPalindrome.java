@@ -6,6 +6,7 @@ public class IsPalindrome {
     System.out.println(isPalindrome("RAD8AR"));
   }
 
+  /* https://leetcode.com/problems/valid-palindrome/ */
   public static boolean isPalindrome(String str) {
     if (str == null || str.isEmpty()) {
       return true; // An empty string or null is considered a palindrome
@@ -32,5 +33,4 @@ public class IsPalindrome {
     }
     return true;
   }
-
 }

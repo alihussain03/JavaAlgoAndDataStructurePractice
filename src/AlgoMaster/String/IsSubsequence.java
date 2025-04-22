@@ -23,5 +23,4 @@ public class IsSubsequence {
     }
     return s.length() == count;
   }
-
 }
