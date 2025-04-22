@@ -1,30 +1,9 @@
-package com.practiceExamples.String;
+package AlgoMaster.String;
 
-/**
- * A palindrome is a sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and
- * case differences.
- */
-
-public class String_2_CheckPalindrome {
+public class IsPalindrome {
 
   public static void main(String[] args) {
-    String[] testCases = {
-        "",
-        "a",
-        "Aba",
-        "A man a plan a canal Panama",
-        "A man, a plan, a canal: Panama",
-        "12321",
-        "1A2B2A1",
-        "àbAà",
-        "\nA\t",
-        "RADAR1",
-        null
-    };
-
-    for (String testCase : testCases) {
-      System.out.println("Is \"" + testCase + "\" a palindrome? " + isPalindrome(testCase));
-    }
+    System.out.println(isPalindrome("RAD8AR"));
   }
 
   public static boolean isPalindrome(String str) {
@@ -53,5 +32,5 @@ public class String_2_CheckPalindrome {
     }
     return true;
   }
-}
 
+}
