@@ -12,6 +12,15 @@ public class SinglyLinkedList<E> {
     size = 0;
   }
 
+  public static <T> void printList(Node<T> head) {
+    Node<T> current = head;
+    while (current != null) {
+      System.out.print(current.element + " -> ");
+      current = current.next;
+    }
+    System.out.println("null");
+  }
+
   public int size() {
     return size;
   }
@@ -87,15 +96,6 @@ public class SinglyLinkedList<E> {
       System.out.println(print.getElement());
       print = print.getNext();
     }
-  }
-
-  public static <T> void printList(Node<T> head) {
-    Node<T> current = head;
-    while (current != null) {
-      System.out.print(current.element + " -> ");
-      current = current.next;
-    }
-    System.out.println("null");
   }
 
   public int sizeExercise() {

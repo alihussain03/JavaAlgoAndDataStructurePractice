@@ -1,9 +1,9 @@
 package Grokking.LinkedList;
 
 import static util.SinglyLinkedList.printList;
-
 import util.Node;
 
+/* https://leetcode.com/problems/reverse-linked-list/description/ */
 public class ReverseLinkedList {
 
   public static void main(String[] args) throws CloneNotSupportedException {
@@ -12,13 +12,11 @@ public class ReverseLinkedList {
     System.out.println("Original List:");
     printList(head);
 
-    Node<Integer> reversedHead = reverseList(head);
-
     System.out.println("Reversed List:");
+    Node<Integer> reversedHead = reverseList(head);
     printList(reversedHead);
   }
 
-  /* https://leetcode.com/problems/reverse-linked-list/description/ */
   static Node<Integer> reverseList(Node<Integer> head) {
     Node<Integer> current = head;
     Node<Integer> prev = null;
