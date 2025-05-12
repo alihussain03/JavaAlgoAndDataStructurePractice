@@ -6,7 +6,7 @@ import util.Node;
 public class CheckIsPalindrome {
 
   public static void main(String[] args) {
-    Node<Integer> list = new Node<>(1, new Node<>(3, new Node<>(3, new Node<>(1, null))));
+    Node<Integer> list = new Node<>(1, new Node<>(3, new Node<>(1, null)));
     System.out.println(isPalindrome(list));
   }
 
@@ -31,5 +31,4 @@ public class CheckIsPalindrome {
     }
     return true;
   }
-
 }
