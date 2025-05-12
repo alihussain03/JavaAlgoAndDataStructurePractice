@@ -17,7 +17,7 @@ public class ReverseLinkedList {
     printList(reversedHead);
   }
 
-  static Node<Integer> reverseList(Node<Integer> head) {
+  public static Node<Integer> reverseList(Node<Integer> head) {
     Node<Integer> current = head;
     Node<Integer> prev = null;
     while (current != null) {
