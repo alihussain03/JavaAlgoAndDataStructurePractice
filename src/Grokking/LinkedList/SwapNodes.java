@@ -8,8 +8,8 @@ public class SwapNodes {
 
   public static void main(String[] args) {
     Node<Integer> list1 = new Node<>(1, new Node<>(2, new Node<>(3, new Node<>(4, null))));
-    Node<Integer> mergeList = swapNodes(list1);
-    printList(mergeList);
+    Node<Integer> listAfterSwappingNodes = swapNodes(list1);
+    printList(listAfterSwappingNodes);
   }
 
   static Node<Integer> swapNodes(Node<Integer> head) {
@@ -22,6 +22,8 @@ public class SwapNodes {
 
       swap1.next = swap2.next;
       swap2.next = swap1;
+
+      // Prepare for next swap
       current.next = swap2;
       current = swap1;
     }
