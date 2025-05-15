@@ -1,4 +1,4 @@
-package Grokking.LinkedList;
+package AlgoMaster.LinkedList;
 
 /* https://leetcode.com/problems/design-linked-list/description/ */
 public class MyLinkedList {

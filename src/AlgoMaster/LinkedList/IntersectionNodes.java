@@ -1,4 +1,4 @@
-package Grokking.LinkedList;
+package AlgoMaster.LinkedList;
 
 import static util.SinglyLinkedList.printList;
 import java.util.HashSet;
