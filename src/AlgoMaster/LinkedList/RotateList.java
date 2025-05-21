@@ -36,13 +36,12 @@ public class RotateList {
       return head;
     }
     tail.next = head;
-    Node temp = head;
+    Node<Integer> temp = head;
     for (int i = 0; i < size - k - 1; i++) {
       temp = temp.next;
     }
     head = temp.next;
-    temp.next = null;
-
+    temp.next = null;''
     return head;
   }
 }
