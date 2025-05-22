@@ -41,7 +41,7 @@ public class RotateList {
       temp = temp.next;
     }
     head = temp.next;
-    temp.next = null;''
+    temp.next = null;
     return head;
   }
 }
