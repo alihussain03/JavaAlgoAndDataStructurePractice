@@ -4,10 +4,10 @@ import java.util.List;
 
 public class CollectionUtil {
 
-  public static void swapArrayElements(int[] array, int i, int j) {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+  public static void swapArrayElements(int[] array, int left, int right) {
+    int temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
   }
 
   public static void printArray(int[] array) {
