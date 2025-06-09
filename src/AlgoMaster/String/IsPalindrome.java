@@ -3,7 +3,7 @@ package AlgoMaster.String;
 public class IsPalindrome {
 
   public static void main(String[] args) {
-    System.out.println(isPalindrome("RAD8AR"));
+    System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
   }
 
   /* https://leetcode.com/problems/valid-palindrome/ */
