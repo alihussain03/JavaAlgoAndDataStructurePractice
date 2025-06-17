@@ -147,4 +147,3 @@ public class SinglyLinkedList<E> {
     return other;
   }
 }
-

@@ -29,6 +29,4 @@ public class StockMaxProfit {
     }
     return profit;
   }
-
-
 }

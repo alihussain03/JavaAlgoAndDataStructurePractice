@@ -125,5 +125,4 @@ public class Array_13_ArrayUnion {
     }
     return intersection.stream().mapToInt(i -> i).toArray();
   }
-
 }

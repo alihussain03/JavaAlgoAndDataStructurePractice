@@ -45,6 +45,4 @@ public class Array_6_SearchInSortedArray {
     }
     return -1;
   }
-
-
 }

@@ -175,4 +175,3 @@ public class ArrayPrefixSuffix {
     printMatrix(suffixProduct2D(matrix));
   }
 }
-

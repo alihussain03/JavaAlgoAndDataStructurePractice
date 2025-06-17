@@ -49,5 +49,4 @@ public class Array_15_FindMissingNumber {
     // XOR of xorArray and xorFull will give the missing number
     return xorArray ^ xorFull;
   }
-
 }

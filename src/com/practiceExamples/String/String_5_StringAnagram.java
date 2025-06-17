@@ -30,7 +30,5 @@ public class String_5_StringAnagram {
 
     // Compare sorted arrays
     return Arrays.equals(charArray1, charArray2);
-
-
   }
 }

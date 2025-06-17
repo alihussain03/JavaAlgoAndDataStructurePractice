@@ -47,5 +47,4 @@ public class CheckPrime {
     }
     return true;
   }
-
 }

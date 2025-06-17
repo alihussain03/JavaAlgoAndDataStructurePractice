@@ -40,6 +40,4 @@ public class Recursion_1_DecimalToBinary {
     decimalToBinaryUsingRecursion(n / 2);
     System.out.print(n % 2);
   }
-
-
 }

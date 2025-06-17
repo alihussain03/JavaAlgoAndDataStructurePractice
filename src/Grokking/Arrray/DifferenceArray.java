@@ -59,6 +59,4 @@ public class DifferenceArray {
     }
     return differenceArray;
   }
-
-
 }

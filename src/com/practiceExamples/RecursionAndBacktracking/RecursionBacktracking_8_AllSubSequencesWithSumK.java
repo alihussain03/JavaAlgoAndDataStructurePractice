@@ -69,6 +69,4 @@ public class RecursionBacktracking_8_AllSubSequencesWithSumK {
     sum -= numbers[index];
     findSubSequencesWithSumKAndPrint(numbers, index + 1, output, target, sum);
   }
-
-
 }

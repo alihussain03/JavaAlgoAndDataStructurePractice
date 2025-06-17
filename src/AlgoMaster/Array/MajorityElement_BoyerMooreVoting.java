@@ -104,6 +104,4 @@ public class MajorityElement_BoyerMooreVoting {
     }
     return result;
   }
-
-
 }

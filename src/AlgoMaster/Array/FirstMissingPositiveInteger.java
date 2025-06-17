@@ -35,6 +35,4 @@ public class FirstMissingPositiveInteger {
     // All numbers from 1 to n are present
     return n + 1;
   }
-
 }
-

@@ -62,5 +62,4 @@ public class RecursionBacktracking_7_AllSubSequences {
     temp.removeLast();
     findSubSequencesForIntegers2(arr, index + 1, res, temp);
   }
-
 }

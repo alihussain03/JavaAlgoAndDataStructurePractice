@@ -61,6 +61,4 @@ public class Solution {
     generateSequences(s, "", uniqueSequences);  // Generate all sequences
     return uniqueSequences.size();  // Return the size of the set, which is the count of unique sequences
   }
-
-
 }
