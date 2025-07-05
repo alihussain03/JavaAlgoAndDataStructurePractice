@@ -16,11 +16,11 @@ public class Isomorphic {
     GeneralUtil.newFunctionCall();
     System.out.println(isIsomorphic("egg", "add"));
     GeneralUtil.newFunctionCall();
-    System.out.println(isIsomorphic("ab", "cc"));
+    System.out.println(isIsomorphicSpeedEfficient("ab", "cc"));
     GeneralUtil.newFunctionCall();
-    System.out.println(isIsomorphic("foo", "bar"));
+    System.out.println(isIsomorphicSpeedEfficient("foo", "bar"));
     GeneralUtil.newFunctionCall();
-    System.out.println(isIsomorphic("egg", "add"));
+    System.out.println(isIsomorphicSpeedEfficient("egg", "add"));
   }
 
   static boolean isIsomorphic(String s, String t) {
@@ -51,7 +51,7 @@ public class Isomorphic {
     return true;
   }
 
-  public boolean isIsomorphicSpeedEfficient(String s, String t) {
+  static boolean isIsomorphicSpeedEfficient(String s, String t) {
     if (s.length() != t.length()) {
       return false;
     }
