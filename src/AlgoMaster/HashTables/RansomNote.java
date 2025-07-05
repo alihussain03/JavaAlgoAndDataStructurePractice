@@ -4,7 +4,7 @@ import java.util.HashMap;
 import util.GeneralUtil;
 
 /* https://leetcode.com/problems/ransom-note/ */
-public class Ransom {
+public class RansomNote {
 
   public static void main(String[] args) {
     System.out.println(canConstruct("a", "b"));
@@ -16,7 +16,6 @@ public class Ransom {
   }
 
   static boolean canConstruct(String ransomNote, String magazine) {
-
     HashMap<Character, Integer> mapST = new HashMap<>();
 
     for (int i = 0; i < magazine.length(); i++) {

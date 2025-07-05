@@ -1,12 +1,14 @@
 package AlgoMaster.HashTables;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+/* https://leetcode.com/problems/contains-duplicate-ii/description/ */
 public class ContainsDuplicate {
 
   public static void main(String[] args) {
-    int[] arr = {1,2,3,1,2,3};
+    int[] arr = {1, 2, 3, 1, 2, 3};
     System.out.println(containsNearbyDuplicate(arr, 2));
   }
 
@@ -29,5 +31,17 @@ public class ContainsDuplicate {
     }
 
     return false; // No duplicates found within k distance
+  }
+
+  static boolean containsNearbyDuplicate2(int[] nums, int k) {
+    HashMap<Integer, Integer> mapST = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      int num = nums[i];
+      if (mapST.containsKey(num) && (i - mapST.get(num) <= k)) {
+        return true;
+      }
+      mapST.put(num, i); // always update latest index
+    }
+    return false;
   }
 }
